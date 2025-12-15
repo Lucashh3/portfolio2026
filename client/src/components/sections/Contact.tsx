@@ -7,7 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
-import { Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
+import { Github, Linkedin, ArrowUpRight } from "lucide-react";
 
 const formSchema = z.object({
   name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
@@ -36,9 +36,9 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-32 border-t border-border/40 bg-secondary/5">
+    <section id="contact" className="py-32 border-t border-border/40">
       <div className="container px-6 mx-auto">
-        <div className="grid md:grid-cols-12 gap-12">
+        <div className="grid md:grid-cols-12 gap-16">
           
           <div className="md:col-span-5 space-y-12">
             <motion.div
@@ -46,47 +46,50 @@ export function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight mb-6">Let's work<br/>together.</h2>
+              <p className="text-sm text-primary font-medium mb-2">Contato</p>
+              <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight gradient-text mb-6">
+                Vamos trabalhar<br/>juntos.
+              </h2>
               <p className="text-xl text-muted-foreground font-light leading-relaxed">
-                Open for new projects and collaborations.
+                Aberto para novos projetos e colaborações.
               </p>
             </motion.div>
 
             <div className="space-y-8">
               <div>
-                <h3 className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-4">Email</h3>
-                <a href="mailto:lucasheg@yahoo.com" className="text-2xl hover:text-white transition-colors">lucasheg@yahoo.com</a>
+                <p className="text-xs font-mono uppercase tracking-widest text-primary mb-3">Email</p>
+                <a href="mailto:lucasheg@yahoo.com" className="text-2xl hover:text-primary transition-colors">lucasheg@yahoo.com</a>
               </div>
 
               <div>
-                <h3 className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-4">Connect</h3>
-                <div className="flex flex-col gap-4 items-start">
-                   <a 
+                <p className="text-xs font-mono uppercase tracking-widest text-primary mb-4">Redes Sociais</p>
+                <div className="flex flex-col gap-3">
+                  <a 
                     href="https://linkedin.com/in/lucashegouet" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-lg text-muted-foreground hover:text-white transition-colors group"
+                    className="flex items-center gap-3 text-lg text-muted-foreground hover:text-primary transition-colors group"
                   >
                     <Linkedin className="h-5 w-5" /> LinkedIn 
-                    <ArrowUpRight className="h-4 w-4 opacity-50 group-hover:opacity-100 transition-opacity" />
+                    <ArrowUpRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </a>
                   <a 
                     href="https://behance.net/lucashh3" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-lg text-muted-foreground hover:text-white transition-colors group"
+                    className="flex items-center gap-3 text-lg text-muted-foreground hover:text-primary transition-colors group"
                   >
                     <span className="font-bold text-lg leading-none w-5 text-center">Be</span> Behance
-                    <ArrowUpRight className="h-4 w-4 opacity-50 group-hover:opacity-100 transition-opacity" />
+                    <ArrowUpRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </a>
                   <a 
                     href="https://github.com/lucashh3" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-lg text-muted-foreground hover:text-white transition-colors group"
+                    className="flex items-center gap-3 text-lg text-muted-foreground hover:text-primary transition-colors group"
                   >
                     <Github className="h-5 w-5" /> GitHub
-                    <ArrowUpRight className="h-4 w-4 opacity-50 group-hover:opacity-100 transition-opacity" />
+                    <ArrowUpRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </a>
                 </div>
               </div>
@@ -98,7 +101,7 @@ export function Contact() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-secondary/10 border border-border/40 p-8 md:p-10"
+              className="bg-card/50 border border-border/40 rounded-xl p-8 md:p-10"
             >
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -107,12 +110,12 @@ export function Contact() {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-base font-mono uppercase tracking-wider text-muted-foreground">Name</FormLabel>
+                        <FormLabel className="text-sm font-medium text-muted-foreground">Nome</FormLabel>
                         <FormControl>
                           <Input 
-                            placeholder="John Doe" 
+                            placeholder="Seu nome" 
                             {...field} 
-                            className="bg-transparent border-0 border-b border-border rounded-none px-0 py-6 focus-visible:ring-0 focus-visible:border-white text-lg placeholder:text-muted-foreground/30 transition-colors" 
+                            className="bg-secondary/50 border-border/50 focus:border-primary rounded-lg py-6" 
                           />
                         </FormControl>
                         <FormMessage />
@@ -124,12 +127,12 @@ export function Contact() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-base font-mono uppercase tracking-wider text-muted-foreground">Email</FormLabel>
+                        <FormLabel className="text-sm font-medium text-muted-foreground">E-mail</FormLabel>
                         <FormControl>
                           <Input 
-                            placeholder="john@example.com" 
+                            placeholder="seu@email.com" 
                             {...field} 
-                            className="bg-transparent border-0 border-b border-border rounded-none px-0 py-6 focus-visible:ring-0 focus-visible:border-white text-lg placeholder:text-muted-foreground/30 transition-colors" 
+                            className="bg-secondary/50 border-border/50 focus:border-primary rounded-lg py-6" 
                           />
                         </FormControl>
                         <FormMessage />
@@ -141,11 +144,11 @@ export function Contact() {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-base font-mono uppercase tracking-wider text-muted-foreground">Message</FormLabel>
+                        <FormLabel className="text-sm font-medium text-muted-foreground">Mensagem</FormLabel>
                         <FormControl>
                           <Textarea 
-                            placeholder="Tell me about your project..." 
-                            className="bg-transparent border-0 border-b border-border rounded-none px-0 py-6 focus-visible:ring-0 focus-visible:border-white text-lg placeholder:text-muted-foreground/30 min-h-[150px] resize-none transition-colors" 
+                            placeholder="Fale sobre seu projeto..." 
+                            className="bg-secondary/50 border-border/50 focus:border-primary rounded-lg min-h-[150px] resize-none" 
                             {...field} 
                           />
                         </FormControl>
@@ -153,11 +156,9 @@ export function Contact() {
                       </FormItem>
                     )}
                   />
-                  <div className="pt-4">
-                    <Button type="submit" size="lg" className="w-full md:w-auto rounded-none bg-white text-black hover:bg-white/90 font-mono uppercase tracking-widest px-8 py-6 text-sm">
-                      Send Message
-                    </Button>
-                  </div>
+                  <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-white font-medium rounded-lg py-6 shadow-lg shadow-primary/25">
+                    Enviar Mensagem
+                  </Button>
                 </form>
               </Form>
             </motion.div>

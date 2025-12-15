@@ -7,7 +7,7 @@ import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-black selection:text-white">
+    <div className="min-h-screen bg-background text-foreground font-sans">
       <Navbar />
       <main>
         <Hero />
@@ -16,7 +16,7 @@ export default function Home() {
         <Projects />
         <Contact />
       </main>
-      <footer className="py-8 text-center text-sm text-muted-foreground border-t border-border">
+      <footer className="py-8 text-center text-sm text-muted-foreground border-t border-border/40">
         <p>&copy; {new Date().getFullYear()} Lucas Hegouet. Todos os direitos reservados.</p>
       </footer>
     </div>

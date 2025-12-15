@@ -19,10 +19,8 @@ export function About() {
               viewport={{ once: true }}
               className="sticky top-32"
             >
-              <h2 className="text-4xl font-display font-bold tracking-tight mb-2">About</h2>
-              <p className="font-mono text-sm text-muted-foreground uppercase tracking-widest">
-                The Professional
-              </p>
+              <p className="text-sm text-primary font-medium mb-2">Sobre</p>
+              <h2 className="text-4xl font-display font-bold tracking-tight gradient-text">Quem sou eu</h2>
             </motion.div>
           </div>
 
@@ -34,19 +32,19 @@ export function About() {
               transition={{ duration: 0.6 }}
               className="prose prose-invert prose-lg max-w-none"
             >
-              <p className="text-2xl md:text-3xl leading-snug font-light text-foreground/90">
+              <p className="text-xl md:text-2xl leading-relaxed text-foreground/90">
                 Designer de Produto com mais de 10 anos de experiência, especializado em criar soluções centradas no usuário. 
                 Liderando projetos no Brasil e na China, com foco em produtos digitais, 
                 físicos e dashboards interativos.
               </p>
               <div className="grid md:grid-cols-2 gap-8 mt-12 pt-12 border-t border-border/40">
-                <div>
-                   <h3 className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-4">Location</h3>
-                   <p className="text-lg">Salvador, BA — Brazil</p>
+                <div className="space-y-2">
+                  <p className="text-xs font-mono uppercase tracking-widest text-primary">Localização</p>
+                  <p className="text-lg">Salvador, BA — Brasil</p>
                 </div>
-                <div>
-                   <h3 className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-4">Contact</h3>
-                   <p className="text-lg hover:underline cursor-pointer">lucasheg@yahoo.com</p>
+                <div className="space-y-2">
+                  <p className="text-xs font-mono uppercase tracking-widest text-primary">Contato</p>
+                  <a href="mailto:lucasheg@yahoo.com" className="text-lg hover:text-primary transition-colors">lucasheg@yahoo.com</a>
                 </div>
               </div>
             </motion.div>
@@ -57,15 +55,19 @@ export function About() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <h3 className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-6">Technologies & Skills</h3>
-              <div className="flex flex-wrap gap-x-2 gap-y-2">
+              <p className="text-xs font-mono uppercase tracking-widest text-primary mb-6">Tecnologias & Habilidades</p>
+              <div className="flex flex-wrap gap-2">
                 {skills.map((skill, index) => (
-                  <span 
+                  <motion.span 
                     key={index}
-                    className="px-3 py-1 bg-secondary/50 border border-border/50 text-xs md:text-sm text-foreground/80 font-mono hover:bg-white hover:text-black hover:border-white transition-colors cursor-default"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                    className="px-4 py-2 bg-secondary/50 border border-border/50 rounded-lg text-sm text-foreground/80 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 cursor-default"
                   >
                     {skill}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </motion.div>

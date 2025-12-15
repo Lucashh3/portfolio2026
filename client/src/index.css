@@ -41,64 +41,64 @@
   --font-display: 'Space Grotesk', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   
-  --radius: 0rem; /* Brutalist/Technical look usually has sharp corners */
+  --radius: 0.5rem;
 }
 
-/* CONCEALED INSPIRED THEME */
+/* CONCEALED EXACT COLOR SCHEME */
 :root {
-  /* Default to Dark Mode values for the "Concealed" look */
-  --background: 0 0% 5%;       /* #0d0d0d - Very dark gray, almost black */
-  --foreground: 0 0% 95%;      /* #f2f2f2 - Off white */
+  /* Deep navy/blue-black background like Concealed */
+  --background: 222 47% 7%;        /* #0B1120 - Deep navy */
+  --foreground: 210 40% 98%;       /* Off white */
 
-  --card: 0 0% 8%;
-  --card-foreground: 0 0% 95%;
+  --card: 222 47% 10%;             /* Slightly lighter navy */
+  --card-foreground: 210 40% 98%;
 
-  --popover: 0 0% 5%;
-  --popover-foreground: 0 0% 95%;
+  --popover: 222 47% 7%;
+  --popover-foreground: 210 40% 98%;
 
-  --primary: 0 0% 95%;
-  --primary-foreground: 0 0% 5%;
+  /* Primary accent - the blue/indigo button color */
+  --primary: 234 89% 64%;          /* #5B6CF9 - Indigo blue like Concealed */
+  --primary-foreground: 0 0% 100%;
 
-  --secondary: 0 0% 12%;
-  --secondary-foreground: 0 0% 95%;
+  --secondary: 222 47% 12%;
+  --secondary-foreground: 210 40% 98%;
 
-  --muted: 0 0% 12%;
-  --muted-foreground: 0 0% 60%;
+  --muted: 222 47% 15%;
+  --muted-foreground: 215 20% 55%; /* Muted blue-gray text */
 
-  --accent: 0 0% 15%;
-  --accent-foreground: 0 0% 95%;
+  --accent: 234 89% 64%;
+  --accent-foreground: 0 0% 100%;
 
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
 
-  --border: 0 0% 20%;          /* Subtle borders */
-  --input: 0 0% 20%;
-  --ring: 0 0% 83.1%;
+  --border: 222 30% 18%;           /* Subtle blue borders */
+  --input: 222 30% 18%;
+  --ring: 234 89% 64%;
   
-  --radius: 0rem;
+  --radius: 0.5rem;
 }
 
 .dark {
-  /* Same as root because we are forcing dark theme vibe */
-  --background: 0 0% 5%;
-  --foreground: 0 0% 95%;
-  --card: 0 0% 8%;
-  --card-foreground: 0 0% 95%;
-  --popover: 0 0% 5%;
-  --popover-foreground: 0 0% 95%;
-  --primary: 0 0% 95%;
-  --primary-foreground: 0 0% 5%;
-  --secondary: 0 0% 12%;
-  --secondary-foreground: 0 0% 95%;
-  --muted: 0 0% 12%;
-  --muted-foreground: 0 0% 60%;
-  --accent: 0 0% 15%;
-  --accent-foreground: 0 0% 95%;
+  --background: 222 47% 7%;
+  --foreground: 210 40% 98%;
+  --card: 222 47% 10%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222 47% 7%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 234 89% 64%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 222 47% 12%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 222 47% 15%;
+  --muted-foreground: 215 20% 55%;
+  --accent: 234 89% 64%;
+  --accent-foreground: 0 0% 100%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
-  --border: 0 0% 15%;
-  --input: 0 0% 15%;
-  --ring: 0 0% 83.1%;
+  --border: 222 30% 18%;
+  --input: 222 30% 18%;
+  --ring: 234 89% 64%;
 }
 
 @layer base {
@@ -106,7 +106,7 @@
     @apply border-border;
   }
   body {
-    @apply font-sans antialiased bg-background text-foreground selection:bg-white selection:text-black;
+    @apply font-sans antialiased bg-background text-foreground;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -120,13 +120,20 @@
   }
   
   .glass {
-    @apply bg-black/80 backdrop-blur-md border-b border-white/5 supports-[backdrop-filter]:bg-black/60;
+    @apply bg-background/80 backdrop-blur-xl border-b border-border/40;
   }
   
-  /* Technical Grid Background */
-  .bg-grid {
-    background-size: 40px 40px;
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  /* Gradient text effect */
+  .gradient-text {
+    background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Glow effect for 3D element */
+  .glow {
+    filter: drop-shadow(0 0 40px rgba(99, 102, 241, 0.4)) 
+            drop-shadow(0 0 80px rgba(99, 102, 241, 0.2));
   }
 }

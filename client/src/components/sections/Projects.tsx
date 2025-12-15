@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
-// Placeholder data for projects
 const projects = [
   {
     title: "Dashboard Financeiro",
@@ -34,52 +33,52 @@ export function Projects() {
     <section id="projects" className="py-32 border-t border-border/40">
       <div className="container px-6 mx-auto">
         
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-             <h2 className="text-4xl font-display font-bold tracking-tight mb-2">Selected Work</h2>
-             <p className="font-mono text-sm text-muted-foreground uppercase tracking-widest">
-                Digital & Physical
-             </p>
+            <p className="text-sm text-primary font-medium mb-2">Portfólio</p>
+            <h2 className="text-4xl font-display font-bold tracking-tight gradient-text">Projetos Selecionados</h2>
           </motion.div>
 
           <motion.a 
             href="#" 
-            className="text-sm font-mono uppercase tracking-widest border-b border-foreground/30 hover:border-foreground pb-1 transition-colors"
+            className="text-sm font-medium text-primary hover:underline flex items-center gap-1"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            View All Projects
+            Ver todos os projetos <ArrowUpRight className="h-4 w-4" />
           </motion.a>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-px bg-border/40 border border-border/40">
+        <div className="grid md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative aspect-[4/3] bg-secondary/10 overflow-hidden cursor-pointer"
+              className="group relative aspect-[4/3] bg-card rounded-xl overflow-hidden cursor-pointer border border-border/40 hover:border-primary/40 transition-all duration-500"
             >
               <img 
                 src={project.image} 
                 alt={project.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100 grayscale group-hover:grayscale-0"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-100"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-8 flex flex-col justify-end">
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent p-8 flex flex-col justify-end">
                 <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                  <p className="text-xs font-mono text-primary/80 mb-2 uppercase tracking-widest">{project.category}</p>
+                  <span className="inline-block px-3 py-1 bg-primary/20 text-primary text-xs font-mono rounded-md mb-3">
+                    {project.category}
+                  </span>
                   <h3 className="text-2xl font-display font-bold text-white mb-2 flex items-center gap-2">
                     {project.title}
-                    <ArrowUpRight className="h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity -translate-y-1 translate-x-1" />
+                    <ArrowUpRight className="h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </h3>
-                  <p className="text-white/60 text-sm max-w-sm opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500">
+                  <p className="text-white/70 text-sm max-w-sm opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500">
                     {project.description}
                   </p>
                 </div>

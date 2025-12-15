@@ -29,53 +29,56 @@ export function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/40"
+      className="fixed top-0 left-0 right-0 z-50 glass"
     >
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
         <a 
           href="#hero" 
           onClick={(e) => scrollToSection(e, "#hero")}
-          className="text-xl font-bold font-display tracking-tighter uppercase hover:opacity-70 transition-opacity"
+          className="text-xl font-bold font-display tracking-tight hover:opacity-70 transition-opacity"
         >
-          Lucas Hegouet<span className="text-primary/40">.</span>
+          Lucas<span className="text-primary">.</span>
         </a>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <a
               key={item.name}
               href={item.href}
               onClick={(e) => scrollToSection(e, item.href)}
-              className="text-xs font-mono uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors relative group"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
             >
               {item.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-foreground transition-all group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all group-hover:w-full rounded-full" />
             </a>
           ))}
-          <Button variant="outline" className="rounded-none border-primary/20 hover:bg-white hover:text-black hover:border-white transition-all font-mono text-xs uppercase tracking-widest ml-4">
-            Get in touch
+          <Button 
+            className="bg-primary hover:bg-primary/90 text-white font-medium rounded-lg ml-4"
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Contato
           </Button>
         </nav>
 
         {/* Mobile Nav */}
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon" className="rounded-none">
+            <Button variant="ghost" size="icon" className="rounded-lg">
               <Menu className="h-6 w-6" />
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="bg-background border-l border-border/40 w-full sm:w-[400px]">
-            <nav className="flex flex-col gap-8 mt-20 px-4">
+            <nav className="flex flex-col gap-6 mt-16 px-2">
               {navItems.map((item, index) => (
                 <a
                   key={item.name}
                   href={item.href}
                   onClick={(e) => scrollToSection(e, item.href)}
-                  className="text-4xl font-display font-bold uppercase tracking-tight hover:text-muted-foreground transition-colors border-b border-border/20 pb-4 flex justify-between items-center group"
+                  className="text-3xl font-display font-bold hover:text-primary transition-colors border-b border-border/20 pb-4 flex justify-between items-center group"
                 >
                   {item.name}
-                  <span className="text-xs font-mono text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity">0{index + 1}</span>
+                  <span className="text-xs font-mono text-muted-foreground">0{index + 1}</span>
                 </a>
               ))}
             </nav>

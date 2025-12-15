@@ -26,20 +26,18 @@ export function Experience() {
     <section id="experience" className="py-32 border-t border-border/40">
       <div className="container px-6 mx-auto">
         
-        <div className="mb-20">
+        <div className="mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-             <h2 className="text-4xl font-display font-bold tracking-tight mb-2">Experience</h2>
-             <p className="font-mono text-sm text-muted-foreground uppercase tracking-widest">
-                Career Trajectory
-             </p>
+            <p className="text-sm text-primary font-medium mb-2">Trajetória</p>
+            <h2 className="text-4xl font-display font-bold tracking-tight gradient-text">Experiência</h2>
           </motion.div>
         </div>
 
-        <div className="grid gap-px bg-border/40 border border-border/40 overflow-hidden">
+        <div className="space-y-6">
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
@@ -47,22 +45,22 @@ export function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-background p-8 md:p-12 hover:bg-secondary/20 transition-colors group relative"
+              className="group relative bg-card/50 border border-border/40 rounded-xl p-8 hover:bg-card hover:border-primary/30 transition-all duration-500"
             >
-              <div className="grid md:grid-cols-12 gap-8 items-start">
+              <div className="grid md:grid-cols-12 gap-6 items-start">
                 <div className="md:col-span-3">
-                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider border border-border px-2 py-1 rounded-sm group-hover:border-primary/40 transition-colors">
+                  <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-mono rounded-md">
                     {exp.period}
                   </span>
                 </div>
                 <div className="md:col-span-9">
-                  <h3 className="text-2xl font-display font-bold mb-1 group-hover:translate-x-2 transition-transform duration-300">
+                  <h3 className="text-2xl font-display font-bold mb-1 group-hover:text-primary transition-colors">
                     {exp.role}
                   </h3>
-                  <p className="text-lg text-muted-foreground mb-4 group-hover:translate-x-2 transition-transform duration-300 delay-75">
+                  <p className="text-lg text-muted-foreground mb-4">
                     {exp.company}
                   </p>
-                  <p className="text-foreground/80 leading-relaxed max-w-2xl group-hover:text-foreground transition-colors">
+                  <p className="text-foreground/70 leading-relaxed">
                     {exp.description}
                   </p>
                 </div>
