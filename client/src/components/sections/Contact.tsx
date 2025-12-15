@@ -36,80 +36,84 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-secondary/30">
-      <div className="container px-6 max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="space-y-12"
-        >
-          <div className="space-y-4">
-            <h2 className="text-3xl font-semibold tracking-tight">Contato</h2>
-            <div className="h-1 w-20 bg-black/10 rounded-full"></div>
-            <p className="text-muted-foreground text-lg">
-              Estou sempre aberto a novos projetos e colaborações.
-            </p>
-          </div>
+    <section id="contact" className="py-32 border-t border-border/40 bg-secondary/5">
+      <div className="container px-6 mx-auto">
+        <div className="grid md:grid-cols-12 gap-12">
+          
+          <div className="md:col-span-5 space-y-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight mb-6">Let's work<br/>together.</h2>
+              <p className="text-xl text-muted-foreground font-light leading-relaxed">
+                Open for new projects and collaborations.
+              </p>
+            </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-8">
-              <div className="space-y-4">
-                <h3 className="text-xl font-medium">Informações</h3>
-                <div className="space-y-3 text-muted-foreground">
-                  <p className="flex items-center gap-2">
-                    <Mail className="h-4 w-4" /> lucasheg@yahoo.com
-                  </p>
-                  <p>📍 Salvador - BA</p>
-                </div>
+              <div>
+                <h3 className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-4">Email</h3>
+                <a href="mailto:lucasheg@yahoo.com" className="text-2xl hover:text-white transition-colors">lucasheg@yahoo.com</a>
               </div>
 
-              <div className="space-y-4">
-                <h3 className="text-xl font-medium">Redes Sociais</h3>
-                <div className="flex flex-col gap-3">
-                  <a 
+              <div>
+                <h3 className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-4">Connect</h3>
+                <div className="flex flex-col gap-4 items-start">
+                   <a 
                     href="https://linkedin.com/in/lucashegouet" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group"
+                    className="flex items-center gap-3 text-lg text-muted-foreground hover:text-white transition-colors group"
                   >
                     <Linkedin className="h-5 w-5" /> LinkedIn 
-                    <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ArrowUpRight className="h-4 w-4 opacity-50 group-hover:opacity-100 transition-opacity" />
                   </a>
                   <a 
                     href="https://behance.net/lucashh3" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group"
+                    className="flex items-center gap-3 text-lg text-muted-foreground hover:text-white transition-colors group"
                   >
                     <span className="font-bold text-lg leading-none w-5 text-center">Be</span> Behance
-                    <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ArrowUpRight className="h-4 w-4 opacity-50 group-hover:opacity-100 transition-opacity" />
                   </a>
                   <a 
                     href="https://github.com/lucashh3" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group"
+                    className="flex items-center gap-3 text-lg text-muted-foreground hover:text-white transition-colors group"
                   >
                     <Github className="h-5 w-5" /> GitHub
-                    <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ArrowUpRight className="h-4 w-4 opacity-50 group-hover:opacity-100 transition-opacity" />
                   </a>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-border">
+          <div className="md:col-span-7">
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-secondary/10 border border-border/40 p-8 md:p-10"
+            >
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                   <FormField
                     control={form.control}
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Nome</FormLabel>
+                        <FormLabel className="text-base font-mono uppercase tracking-wider text-muted-foreground">Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="Seu nome" {...field} className="bg-secondary/20" />
+                          <Input 
+                            placeholder="John Doe" 
+                            {...field} 
+                            className="bg-transparent border-0 border-b border-border rounded-none px-0 py-6 focus-visible:ring-0 focus-visible:border-white text-lg placeholder:text-muted-foreground/30 transition-colors" 
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -120,9 +124,13 @@ export function Contact() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>E-mail</FormLabel>
+                        <FormLabel className="text-base font-mono uppercase tracking-wider text-muted-foreground">Email</FormLabel>
                         <FormControl>
-                          <Input placeholder="seu@email.com" {...field} className="bg-secondary/20" />
+                          <Input 
+                            placeholder="john@example.com" 
+                            {...field} 
+                            className="bg-transparent border-0 border-b border-border rounded-none px-0 py-6 focus-visible:ring-0 focus-visible:border-white text-lg placeholder:text-muted-foreground/30 transition-colors" 
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -133,20 +141,29 @@ export function Contact() {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Mensagem</FormLabel>
+                        <FormLabel className="text-base font-mono uppercase tracking-wider text-muted-foreground">Message</FormLabel>
                         <FormControl>
-                          <Textarea placeholder="Como posso ajudar?" className="resize-none min-h-[120px] bg-secondary/20" {...field} />
+                          <Textarea 
+                            placeholder="Tell me about your project..." 
+                            className="bg-transparent border-0 border-b border-border rounded-none px-0 py-6 focus-visible:ring-0 focus-visible:border-white text-lg placeholder:text-muted-foreground/30 min-h-[150px] resize-none transition-colors" 
+                            {...field} 
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
-                  <Button type="submit" className="w-full">Enviar Mensagem</Button>
+                  <div className="pt-4">
+                    <Button type="submit" size="lg" className="w-full md:w-auto rounded-none bg-white text-black hover:bg-white/90 font-mono uppercase tracking-widest px-8 py-6 text-sm">
+                      Send Message
+                    </Button>
+                  </div>
                 </form>
               </Form>
-            </div>
+            </motion.div>
           </div>
-        </motion.div>
+
+        </div>
       </div>
     </section>
   );

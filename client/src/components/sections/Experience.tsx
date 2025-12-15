@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 
 const experiences = [
   {
@@ -25,51 +23,54 @@ const experiences = [
 
 export function Experience() {
   return (
-    <section id="experience" className="py-24">
-      <div className="container px-6 max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="space-y-12"
-        >
-          <div className="space-y-4">
-            <h2 className="text-3xl font-semibold tracking-tight">Experiência Profissional</h2>
-            <div className="h-1 w-20 bg-black/10 rounded-full"></div>
-          </div>
+    <section id="experience" className="py-32 border-t border-border/40">
+      <div className="container px-6 mx-auto">
+        
+        <div className="mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+             <h2 className="text-4xl font-display font-bold tracking-tight mb-2">Experience</h2>
+             <p className="font-mono text-sm text-muted-foreground uppercase tracking-widest">
+                Career Trajectory
+             </p>
+          </motion.div>
+        </div>
 
-          <div className="grid gap-8">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card className="border-none shadow-none bg-secondary/20 hover:bg-secondary/40 transition-colors duration-300">
-                  <CardHeader>
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-                      <CardTitle className="text-xl font-semibold">{exp.role}</CardTitle>
-                      <Badge variant="secondary" className="w-fit font-normal text-muted-foreground bg-white border-border">
-                        {exp.period}
-                      </Badge>
-                    </div>
-                    <CardDescription className="text-lg font-medium text-foreground/80">
-                      {exp.company}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {exp.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+        <div className="grid gap-px bg-border/40 border border-border/40 overflow-hidden">
+          {experiences.map((exp, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-background p-8 md:p-12 hover:bg-secondary/20 transition-colors group relative"
+            >
+              <div className="grid md:grid-cols-12 gap-8 items-start">
+                <div className="md:col-span-3">
+                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider border border-border px-2 py-1 rounded-sm group-hover:border-primary/40 transition-colors">
+                    {exp.period}
+                  </span>
+                </div>
+                <div className="md:col-span-9">
+                  <h3 className="text-2xl font-display font-bold mb-1 group-hover:translate-x-2 transition-transform duration-300">
+                    {exp.role}
+                  </h3>
+                  <p className="text-lg text-muted-foreground mb-4 group-hover:translate-x-2 transition-transform duration-300 delay-75">
+                    {exp.company}
+                  </p>
+                  <p className="text-foreground/80 leading-relaxed max-w-2xl group-hover:text-foreground transition-colors">
+                    {exp.description}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
       </div>
     </section>
   );

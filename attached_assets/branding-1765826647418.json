@@ -1,0 +1,118 @@
+{
+  "colorScheme": "dark",
+  "fonts": [
+    {
+      "family": "Inter",
+      "role": "body"
+    },
+    {
+      "family": "Apercu Pro Medium",
+      "role": "heading"
+    },
+    {
+      "family": "Cormorant Garamond",
+      "role": "display"
+    }
+  ],
+  "colors": {
+    "primary": "#0000EE",
+    "accent": "#3E3EE0",
+    "background": "#040B11",
+    "textPrimary": "#040B11",
+    "link": "#3E3EE0"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Inter",
+      "heading": "Apercu Pro Medium"
+    },
+    "fontStacks": {
+      "heading": [
+        "Apercu Pro Medium",
+        "sans-serif"
+      ],
+      "body": [
+        "sans-serif"
+      ],
+      "paragraph": [
+        "sans-serif"
+      ]
+    },
+    "fontSizes": {
+      "h1": "64px",
+      "h2": "64px",
+      "body": "18px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "4px"
+  },
+  "components": {
+    "buttonPrimary": {
+      "background": "#3E3EE0",
+      "textColor": "#F2F6F8",
+      "borderColor": "#3E3EE0",
+      "borderRadius": "2px",
+      "borderRadiusCorners": {
+        "topLeft": "2px",
+        "topRight": "2px",
+        "bottomRight": "2px",
+        "bottomLeft": "2px"
+      },
+      "shadow": "none"
+    },
+    "buttonSecondary": {
+      "background": "#0E151B",
+      "textColor": "#0000EE",
+      "borderRadius": "8px",
+      "borderRadiusCorners": {
+        "topLeft": "8px",
+        "topRight": "8px",
+        "bottomRight": "8px",
+        "bottomLeft": "8px"
+      },
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "logo": "File saved at: attached_assets/logo.png",
+    "favicon": "File saved at: attached_assets/favicon.png",
+    "ogImage": "File saved at: attached_assets/ogImage.png"
+  },
+  "__framework_hints": [
+    "Framer 94ad37d"
+  ],
+  "__llm_logo_reasoning": {
+    "selectedIndex": 0,
+    "reasoning": "Selected #0 because it is labeled as 'Concealed logo in 3D', matching the brand name and likely positioned in the header area.",
+    "confidence": 0.9
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": 4,
+      "text": "Accept All",
+      "reasoning": "Button #4 has a vibrant blue color (#3E3EE0) which is the accent color and stands out as the primary call-to-action with the text 'Accept All'."
+    },
+    "secondary": {
+      "index": 0,
+      "text": "Start a Project",
+      "reasoning": "Button #0 has a different color group (#0E151B) and the text 'Start a Project', making it a suitable secondary action."
+    },
+    "confidence": 0.95
+  },
+  "personality": {
+    "tone": "modern",
+    "energy": "medium",
+    "targetAudience": "tech-savvy professionals"
+  },
+  "designSystem": {
+    "framework": "custom",
+    "componentLibrary": null
+  },
+  "confidence": {
+    "buttons": 0.95,
+    "colors": 0.9,
+    "overall": 0.925
+  }
+}
