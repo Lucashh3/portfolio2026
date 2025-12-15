@@ -1,0 +1,44 @@
+Crie uma nova página  chamada para um site de portfólio de design de produto. Essa página apresentará um único projeto em formato de estudo de caso visual.
+Ela deve seguir um estilo minimalista, monocromático e moderno, com layout responsivo, e componentes reutilizáveis.
+
+📄 Estrutura da Página
+1. Hero Section (capa do projeto):
+* Imagem grande do produto (placeholder)
+* Título do projeto: "Sistema Inteligente de Kegs para Cervejarias Artesanais"
+* Subtítulo: "Inovação premiada no setor cervejeiro com design funcional e impacto ambiental reduzido."
+2. Visão Geral do Projeto:
+* Parágrafo introdutório explicando o contexto e objetivo do projeto: "Este projeto nasceu da necessidade de repensar o serviço de chope em microcervejarias. A solução desenvolvida elimina o uso de CO₂ com um sistema de balão interno pressurizado a ar atmosférico — aumentando a segurança, eficiência e sustentabilidade." 
+3. Desafios:
+* Lista dos principais problemas enfrentados:
+    * Armazenamento ineficiente
+    * Alto custo com cilindros de CO₂
+    * Falta de controle sobre consumo
+    * Estética pouco atrativa nos bares
+4. Soluções e Diferenciais:
+* Grid com ícones e descrição:
+    * 🧪 Materiais poliméricos resistentes e leves
+    * 💨 Dispensação por ar atmosférico
+    * 🧠 Sensorização e dashboard de monitoramento
+    * 🍻 Estética industrial minimalista
+5. Processo de Design:
+* Linha do tempo visual ou parágrafo com etapas: Pesquisa → Sketches → Prototipagem (Fusion 360) → Testes → Implementação 
+6. Resultados:
+* Lista de conquistas e impactos:
+    * Redução de 30% em perdas de chope
+    * Aumento da vida útil do barril
+    * Feedback positivo de +40 microcervejarias
+    * Registro de patente BR 10 2022 010428 0
+7. Galeria:
+* Grid de imagens ou carrossel (pode usar placeholders)
+* Animações opcionais com Lottie ou efeitos parallax
+8. Chamada à Ação (CTA):
+* Texto: "Quer saber mais ou colaborar em projetos inovadores?"
+* Botão com link para a página de contato
+
+🧩 Estilo Visual
+* Design minimalista, monocromático, responsivo
+* Efeitos visuais suaves: fade-ins, transições de rolagem
+* Layout com respiro e espaçamento amplo
+* Separar HTML e CSS em arquivos distintos
+
+
