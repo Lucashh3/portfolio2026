@@ -22,9 +22,9 @@ export function About() {
           >
             <div className="flex items-center gap-4 mb-4">
               <div className="w-12 h-px bg-primary" />
-              <span className="text-sm text-primary font-medium">01</span>
+              <span className="text-sm text-primary font-mono tracking-wider">01 — SOBRE</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Sobre</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Quem sou eu</h2>
           </motion.div>
 
           {/* Right column - Content */}

@@ -32,11 +32,13 @@ export function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex items-center gap-4 mb-20"
+          className="mb-20"
         >
-          <div className="w-12 h-px bg-primary" />
-          <span className="text-sm text-primary font-medium">02</span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight ml-4">Experiência</h2>
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-12 h-px bg-primary" />
+            <span className="text-sm text-primary font-mono tracking-wider">02 — EXPERIÊNCIA</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Onde já trabalhei</h2>
         </motion.div>
 
         {/* Experience List */}

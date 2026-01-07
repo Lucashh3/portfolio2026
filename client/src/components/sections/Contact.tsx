@@ -18,7 +18,7 @@ export function Contact() {
           className="max-w-4xl"
         >
           {/* Label */}
-          <div className="flex items-center gap-4 mb-8">
+          <div className="flex items-center gap-4 mb-6">
             <motion.div
               className="w-12 h-[1px] bg-primary"
               initial={{ width: 0 }}
@@ -26,11 +26,11 @@ export function Contact() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             />
-            <span className="text-sm text-primary font-mono tracking-wider">CONTATO</span>
+            <span className="text-sm text-primary font-mono tracking-wider">04 — CONTATO</span>
           </div>
 
           {/* Main CTA */}
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-8">
             Bora trocar uma ideia?
           </h2>
 

@@ -214,9 +214,9 @@ export function Projects() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             />
-            <span className="text-sm text-primary font-mono tracking-wider">TRABALHOS SELECIONADOS</span>
+            <span className="text-sm text-primary font-mono tracking-wider">03 — TRABALHOS</span>
           </div>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-4xl">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight max-w-4xl">
             Projetos que transformam
             <span className="text-muted-foreground"> ideias em experiências</span>
           </h2>
