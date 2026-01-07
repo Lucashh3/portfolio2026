@@ -6,12 +6,16 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import ProjectKeg from "@/pages/ProjectKeg";
+import ProjectBloxs from "@/pages/ProjectBloxs";
+import ProjectBloxsSite from "@/pages/ProjectBloxsSite";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/projeto/keg-inteligente" component={ProjectKeg} />
+      <Route path="/projeto/bloxs" component={ProjectBloxs} />
+      <Route path="/projeto/bloxs-site" component={ProjectBloxsSite} />
       <Route component={NotFound} />
     </Switch>
   );

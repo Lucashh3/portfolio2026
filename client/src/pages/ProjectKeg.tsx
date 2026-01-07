@@ -1,8 +1,9 @@
-import { motion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
-import { Button } from "@/components/ui/button";
-import { ArrowLeft, Beaker, Wind, Brain, Beer, ChevronRight } from "lucide-react";
+import { Footer } from "@/components/layout/Footer";
+import { ArrowLeft, Beaker, Wind, Brain, Beer } from "lucide-react";
 import { Link } from "wouter";
+import { useState } from "react";
+import { Lightbox } from "@/components/ui/lightbox";
 
 const challenges = [
   "Armazenamento ineficiente",
@@ -41,290 +42,214 @@ const galleryImages = [
 ];
 
 export default function ProjectKeg() {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const openLightbox = (index: number) => {
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
       <Navbar />
-      
-      <main className="pt-20">
+
+      <main className="pt-16">
         {/* Hero Section */}
-        <section className="relative min-h-[80vh] flex items-end overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <img 
-              src="https://images.unsplash.com/photo-1535958636474-b021ee887b13?q=80&w=2670&auto=format&fit=crop"
-              alt="Keg System"
-              className="w-full h-full object-cover opacity-40"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
-          </div>
-          
-          <div className="container px-6 mx-auto relative z-10 pb-20">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+        <section className="py-24 border-b border-border">
+          <div className="container px-6 mx-auto">
+            <Link
+              href="/#projects"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-200 mb-12"
             >
-              <Link href="/#projects">
-                <a className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
-                  <ArrowLeft className="h-4 w-4" /> Voltar aos projetos
-                </a>
-              </Link>
-              
-              <div className="flex flex-wrap gap-3 mb-6">
-                <span className="px-3 py-1 bg-primary/20 text-primary text-xs font-mono rounded-md">Product Design</span>
-                <span className="px-3 py-1 bg-secondary text-muted-foreground text-xs font-mono rounded-md">IoT</span>
-                <span className="px-3 py-1 bg-secondary text-muted-foreground text-xs font-mono rounded-md">Industrial</span>
-              </div>
-              
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-display tracking-tight leading-[1.1] max-w-4xl mb-6">
-                Sistema Inteligente de Kegs para Cervejarias Artesanais
-              </h1>
-              
-              <p className="text-xl md:text-2xl text-muted-foreground font-light max-w-2xl">
-                Inovação premiada no setor cervejeiro com design funcional e impacto ambiental reduzido.
-              </p>
-            </motion.div>
+              <ArrowLeft className="h-4 w-4" /> Voltar aos projetos
+            </Link>
+
+            {/* Meta */}
+            <div className="flex items-center gap-3 text-sm text-muted-foreground mb-6">
+              <span className="font-mono">2024</span>
+              <span>·</span>
+              <span>Product Design</span>
+              <span>·</span>
+              <span>IoT</span>
+            </div>
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] max-w-4xl mb-8">
+              Sistema Inteligente de Kegs para Cervejarias Artesanais
+            </h1>
+
+            <p className="text-xl text-muted-foreground max-w-2xl">
+              Inovação premiada no setor cervejeiro com design funcional e impacto ambiental reduzido.
+            </p>
+          </div>
+        </section>
+
+        {/* Hero Image */}
+        <section className="border-b border-border">
+          <div className="container px-6 mx-auto">
+            <div className="aspect-[21/9] overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1535958636474-b021ee887b13?q=80&w=2670&auto=format&fit=crop"
+                alt="Keg System"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </section>
 
         {/* Overview Section */}
-        <section className="py-24 border-t border-border/40">
+        <section className="py-24 border-b border-border">
           <div className="container px-6 mx-auto">
             <div className="grid md:grid-cols-12 gap-12">
               <div className="md:col-span-4">
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                >
-                  <p className="text-sm text-primary font-medium mb-2">Visão Geral</p>
-                  <h2 className="text-3xl font-display font-bold tracking-tight gradient-text">O Projeto</h2>
-                </motion.div>
+                <h2 className="text-2xl font-bold tracking-tight">O Projeto</h2>
               </div>
               <div className="md:col-span-8">
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="text-xl md:text-2xl leading-relaxed text-foreground/90"
-                >
-                  Este projeto nasceu da necessidade de repensar o serviço de chope em microcervejarias. 
-                  A solução desenvolvida elimina o uso de CO₂ com um sistema de balão interno pressurizado 
+                <p className="text-xl leading-relaxed text-foreground/90">
+                  Este projeto nasceu da necessidade de repensar o serviço de chope em microcervejarias.
+                  A solução desenvolvida elimina o uso de CO₂ com um sistema de balão interno pressurizado
                   a ar atmosférico — aumentando a segurança, eficiência e sustentabilidade.
-                </motion.p>
+                </p>
               </div>
             </div>
           </div>
         </section>
 
         {/* Challenges Section */}
-        <section className="py-24 border-t border-border/40 bg-card/30">
+        <section className="py-24 border-b border-border">
           <div className="container px-6 mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mb-16"
-            >
-              <p className="text-sm text-primary font-medium mb-2">Problema</p>
-              <h2 className="text-3xl font-display font-bold tracking-tight gradient-text">Desafios Identificados</h2>
-            </motion.div>
+            <h2 className="text-2xl font-bold tracking-tight mb-12">Desafios</h2>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {challenges.map((challenge, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="p-6 bg-background border border-border/40 rounded-xl hover:border-primary/30 transition-colors"
-                >
-                  <span className="text-4xl font-display font-bold text-primary/20 mb-4 block">0{index + 1}</span>
-                  <p className="text-lg font-medium">{challenge}</p>
-                </motion.div>
+                <div key={index} className="border-l border-border pl-6">
+                  <span className="text-sm font-mono text-muted-foreground mb-2 block">0{index + 1}</span>
+                  <p className="text-lg">{challenge}</p>
+                </div>
               ))}
             </div>
           </div>
         </section>
 
         {/* Solutions Section */}
-        <section className="py-24 border-t border-border/40">
+        <section className="py-24 border-b border-border">
           <div className="container px-6 mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mb-16"
-            >
-              <p className="text-sm text-primary font-medium mb-2">Solução</p>
-              <h2 className="text-3xl font-display font-bold tracking-tight gradient-text">Diferenciais do Produto</h2>
-            </motion.div>
+            <h2 className="text-2xl font-bold tracking-tight mb-12">Solução</h2>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {solutions.map((solution, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group p-8 bg-card/50 border border-border/40 rounded-xl hover:bg-primary hover:border-primary transition-all duration-500"
-                >
-                  <solution.icon className="h-10 w-10 text-primary group-hover:text-white mb-6 transition-colors" />
-                  <h3 className="text-xl font-display font-bold mb-2 group-hover:text-white transition-colors">{solution.title}</h3>
-                  <p className="text-muted-foreground group-hover:text-white/80 transition-colors">{solution.description}</p>
-                </motion.div>
+                <div key={index} className="group">
+                  <solution.icon className="h-8 w-8 text-primary mb-4" />
+                  <h3 className="text-lg font-semibold mb-2">{solution.title}</h3>
+                  <p className="text-muted-foreground">{solution.description}</p>
+                </div>
               ))}
             </div>
           </div>
         </section>
 
         {/* Process Section */}
-        <section className="py-24 border-t border-border/40 bg-card/30">
+        <section className="py-24 border-b border-border">
           <div className="container px-6 mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mb-16"
-            >
-              <p className="text-sm text-primary font-medium mb-2">Metodologia</p>
-              <h2 className="text-3xl font-display font-bold tracking-tight gradient-text">Processo de Design</h2>
-            </motion.div>
+            <h2 className="text-2xl font-bold tracking-tight mb-12">Processo</h2>
 
-            <div className="relative">
-              {/* Timeline line */}
-              <div className="hidden lg:block absolute top-8 left-0 right-0 h-[2px] bg-border/40" />
-              
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-                {processSteps.map((step, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.15 }}
-                    className="relative text-center lg:text-left"
-                  >
-                    <div className="w-16 h-16 rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center mx-auto lg:mx-0 mb-4 relative z-10 bg-background">
-                      <span className="text-xl font-display font-bold text-primary">{step.step}</span>
-                    </div>
-                    <h3 className="text-lg font-display font-bold mb-1">{step.title}</h3>
-                    <p className="text-sm text-muted-foreground">{step.description}</p>
-                  </motion.div>
-                ))}
-              </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+              {processSteps.map((step, index) => (
+                <div key={index}>
+                  <span className="text-3xl font-bold text-primary/30 mb-2 block">{step.step}</span>
+                  <h3 className="font-semibold mb-1">{step.title}</h3>
+                  <p className="text-sm text-muted-foreground">{step.description}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
         {/* Results Section */}
-        <section className="py-24 border-t border-border/40">
+        <section className="py-24 border-b border-border">
           <div className="container px-6 mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mb-16"
-            >
-              <p className="text-sm text-primary font-medium mb-2">Impacto</p>
-              <h2 className="text-3xl font-display font-bold tracking-tight gradient-text">Resultados Alcançados</h2>
-            </motion.div>
+            <h2 className="text-2xl font-bold tracking-tight mb-12">Resultados</h2>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
               {results.map((result, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="text-center p-8 bg-card/50 border border-border/40 rounded-xl"
-                >
-                  <span className="text-5xl md:text-6xl font-display font-bold gradient-text">{result.value}</span>
+                <div key={index}>
+                  <span className="text-4xl md:text-5xl font-bold text-primary">{result.value}</span>
                   <p className="text-muted-foreground mt-2">{result.label}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="p-6 bg-primary/10 border border-primary/30 rounded-xl"
-            >
-              <p className="text-lg">
-                <span className="font-bold text-primary">Patente Registrada:</span>{" "}
-                <span className="font-mono text-muted-foreground">BR 10 2022 010428 0</span>
+            <div className="pt-8 border-t border-border">
+              <p className="text-muted-foreground">
+                <span className="text-foreground font-medium">Patente Registrada:</span>{" "}
+                <span className="font-mono">BR 10 2022 010428 0</span>
               </p>
-            </motion.div>
+            </div>
           </div>
         </section>
 
         {/* Gallery Section */}
-        <section className="py-24 border-t border-border/40 bg-card/30">
+        <section className="py-24 border-b border-border">
           <div className="container px-6 mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mb-16"
-            >
-              <p className="text-sm text-primary font-medium mb-2">Visual</p>
-              <h2 className="text-3xl font-display font-bold tracking-tight gradient-text">Galeria do Projeto</h2>
-            </motion.div>
+            <h2 className="text-2xl font-bold tracking-tight mb-12">Galeria</h2>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {galleryImages.map((image, index) => (
-                <motion.div
+                <button
                   key={index}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="aspect-square overflow-hidden rounded-xl border border-border/40 group cursor-pointer"
+                  onClick={() => openLightbox(index)}
+                  className="aspect-square overflow-hidden bg-card cursor-pointer group"
                 >
-                  <img 
-                    src={image} 
+                  <img
+                    src={image}
                     alt={`Gallery ${index + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                    className="w-full h-full object-cover transition-all duration-300 group-hover:scale-105 group-hover:opacity-80"
                   />
-                </motion.div>
+                </button>
               ))}
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="py-32 border-t border-border/40">
-          <div className="container px-6 mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="max-w-2xl mx-auto"
-            >
-              <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight gradient-text mb-6">
-                Quer saber mais ou colaborar em projetos inovadores?
+        <section className="py-24">
+          <div className="container px-6 mx-auto">
+            <div className="max-w-2xl">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                Quer saber mais?
               </h2>
-              <p className="text-xl text-muted-foreground mb-8">
+              <p className="text-lg text-muted-foreground mb-8">
                 Estou sempre aberto a novos desafios e parcerias criativas.
               </p>
-              <Button 
-                size="lg" 
-                className="bg-primary hover:bg-primary/90 text-white font-medium px-10 py-6 rounded-lg shadow-lg shadow-primary/25"
-                onClick={() => window.location.href = '/#contact'}
+              <a
+                href="/#contact"
+                className="text-primary hover:text-primary/80 transition-colors duration-200"
               >
-                Entre em contato <ChevronRight className="h-5 w-5 ml-2" />
-              </Button>
-            </motion.div>
+                Entre em contato →
+              </a>
+            </div>
           </div>
         </section>
       </main>
 
-      <footer className="py-8 text-center text-sm text-muted-foreground border-t border-border/40">
-        <p>&copy; {new Date().getFullYear()} Lucas Hegouet. Todos os direitos reservados.</p>
-      </footer>
+      <Footer />
+
+      <Lightbox
+        images={galleryImages}
+        currentIndex={currentImageIndex}
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+        onNext={nextImage}
+        onPrev={prevImage}
+      />
     </div>
   );
 }

@@ -8,107 +8,162 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  
+
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
-  
+
   --color-card: hsl(var(--card));
   --color-card-foreground: hsl(var(--card-foreground));
-  
+
   --color-popover: hsl(var(--popover));
   --color-popover-foreground: hsl(var(--popover-foreground));
-  
+
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
-  
+
   --color-secondary: hsl(var(--secondary));
   --color-secondary-foreground: hsl(var(--secondary-foreground));
-  
+
   --color-muted: hsl(var(--muted));
   --color-muted-foreground: hsl(var(--muted-foreground));
-  
+
   --color-accent: hsl(var(--accent));
   --color-accent-foreground: hsl(var(--accent-foreground));
-  
+
   --color-destructive: hsl(var(--destructive));
   --color-destructive-foreground: hsl(var(--destructive-foreground));
-  
+
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
-  
+
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Space Grotesk', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  
-  --radius: 0.5rem;
+
+  --radius: 0.25rem;
 }
 
-/* CONCEALED EXACT COLOR SCHEME */
+/* MINIMAL + OUSADO - Preto puro + Rosa vibrante */
 :root {
-  /* Deep navy/blue-black background like Concealed */
-  --background: 222 47% 7%;        /* #0B1120 - Deep navy */
-  --foreground: 210 40% 98%;       /* Off white */
+  --background: 0 0% 4%;             /* #0a0a0a - Preto puro */
+  --foreground: 0 0% 95%;            /* #f2f2f2 - Branco suave */
 
-  --card: 222 47% 10%;             /* Slightly lighter navy */
-  --card-foreground: 210 40% 98%;
+  --card: 0 0% 7%;                   /* #121212 - Card sutil */
+  --card-foreground: 0 0% 95%;
 
-  --popover: 222 47% 7%;
-  --popover-foreground: 210 40% 98%;
+  --popover: 0 0% 4%;
+  --popover-foreground: 0 0% 95%;
 
-  /* Primary accent - the blue/indigo button color */
-  --primary: 234 89% 64%;          /* #5B6CF9 - Indigo blue like Concealed */
+  /* Rosa vibrante como accent principal */
+  --primary: 342 100% 55%;           /* #ff1a6a - Rosa vibrante */
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 222 47% 12%;
-  --secondary-foreground: 210 40% 98%;
+  --secondary: 0 0% 10%;
+  --secondary-foreground: 0 0% 95%;
 
-  --muted: 222 47% 15%;
-  --muted-foreground: 215 20% 55%; /* Muted blue-gray text */
+  --muted: 0 0% 12%;
+  --muted-foreground: 0 0% 55%;      /* #8c8c8c - Texto secundário */
 
-  --accent: 234 89% 64%;
+  --accent: 342 100% 55%;
   --accent-foreground: 0 0% 100%;
 
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
 
-  --border: 222 30% 18%;           /* Subtle blue borders */
-  --input: 222 30% 18%;
-  --ring: 234 89% 64%;
-  
-  --radius: 0.5rem;
+  --border: 0 0% 15%;                /* #262626 - Bordas sutis */
+  --input: 0 0% 15%;
+  --ring: 342 100% 55%;
+
+  --radius: 0.25rem;
 }
 
 .dark {
-  --background: 222 47% 7%;
-  --foreground: 210 40% 98%;
-  --card: 222 47% 10%;
-  --card-foreground: 210 40% 98%;
-  --popover: 222 47% 7%;
-  --popover-foreground: 210 40% 98%;
-  --primary: 234 89% 64%;
+  --background: 0 0% 4%;
+  --foreground: 0 0% 95%;
+  --card: 0 0% 7%;
+  --card-foreground: 0 0% 95%;
+  --popover: 0 0% 4%;
+  --popover-foreground: 0 0% 95%;
+  --primary: 342 100% 55%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 222 47% 12%;
-  --secondary-foreground: 210 40% 98%;
-  --muted: 222 47% 15%;
-  --muted-foreground: 215 20% 55%;
-  --accent: 234 89% 64%;
+  --secondary: 0 0% 10%;
+  --secondary-foreground: 0 0% 95%;
+  --muted: 0 0% 12%;
+  --muted-foreground: 0 0% 55%;
+  --accent: 342 100% 55%;
   --accent-foreground: 0 0% 100%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
-  --border: 222 30% 18%;
-  --input: 222 30% 18%;
-  --ring: 234 89% 64%;
+  --border: 0 0% 15%;
+  --input: 0 0% 15%;
+  --ring: 342 100% 55%;
+}
+
+/* Infinite scroll animation for client logos */
+@keyframes scroll-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-scroll-up {
+  animation: scroll-up 20s linear infinite;
+}
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Animated noise/grain overlay */
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  20% { transform: translate(-15%, 5%); }
+  30% { transform: translate(7%, -25%); }
+  40% { transform: translate(-5%, 25%); }
+  50% { transform: translate(-15%, 10%); }
+  60% { transform: translate(15%, 0%); }
+  70% { transform: translate(0%, 15%); }
+  80% { transform: translate(3%, 35%); }
+  90% { transform: translate(-10%, 10%); }
 }
 
 @layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply font-sans antialiased bg-background text-foreground;
+    position: relative;
   }
-  
+
+  /* Noise overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.018;
+    z-index: 9999;
+    animation: grain 8s steps(10) infinite;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-display tracking-tight;
   }
@@ -118,22 +173,14 @@
   .text-balance {
     text-wrap: balance;
   }
-  
-  .glass {
-    @apply bg-background/80 backdrop-blur-xl border-b border-border/40;
+
+  /* Linha decorativa rosa */
+  .accent-line {
+    @apply w-12 h-px bg-primary;
   }
-  
-  /* Gradient text effect */
-  .gradient-text {
-    background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  
-  /* Glow effect for 3D element */
-  .glow {
-    filter: drop-shadow(0 0 40px rgba(99, 102, 241, 0.4)) 
-            drop-shadow(0 0 80px rgba(99, 102, 241, 0.2));
+
+  /* Hover com rosa */
+  .hover-accent {
+    @apply transition-colors duration-200 hover:text-primary;
   }
 }

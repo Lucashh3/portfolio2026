@@ -1,169 +1,207 @@
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+
+const clients = [
+  { name: "Client 1", logo: "/images/client-1.png" },
+  { name: "Client 2", logo: "/images/client-2.png" },
+  { name: "Client 3", logo: "/images/client-3.png" },
+  { name: "Client 4", logo: "/images/client-4.png" },
+  { name: "Client 5", logo: "/images/client-5.png" },
+  { name: "Client 6", logo: "/images/client-6.png" },
+];
 
 export function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"]
+  });
+
+  // Parallax effects
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, -150]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
+  const x1 = useTransform(scrollYProgress, [0, 0.5], [0, -30]);
+  const x2 = useTransform(scrollYProgress, [0, 0.5], [0, 30]);
+
+  // Image parallax
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, -80]);
+  const imageScale = useTransform(scrollYProgress, [0, 0.5], [1, 1.1]);
+
   return (
-    <section id="hero" className="min-h-screen flex flex-col justify-center relative pt-20 overflow-hidden">
-      {/* Animated 3D-like Background */}
-      <div className="absolute inset-0 z-0">
-        {/* Gradient orbs */}
-        <motion.div 
-          className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full blur-[120px] opacity-30"
-          style={{ background: 'radial-gradient(circle, #6366f1 0%, transparent 70%)' }}
-          animate={{ 
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{ 
-            duration: 20, 
-            repeat: Infinity, 
-            ease: "linear" 
-          }}
-        />
-        <motion.div 
-          className="absolute top-1/3 left-1/3 w-[400px] h-[400px] rounded-full blur-[100px] opacity-20"
-          style={{ background: 'radial-gradient(circle, #818cf8 0%, transparent 70%)' }}
-          animate={{ 
-            scale: [1.2, 1, 1.2],
-            x: [-50, 50, -50],
-          }}
-          transition={{ 
-            duration: 15, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
-          }}
-        />
-        
-        {/* 3D Floating shapes with CSS */}
-        <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-          animate={{ 
-            rotateX: [0, 360],
-            rotateY: [0, 360],
-          }}
-          transition={{ 
-            duration: 30, 
-            repeat: Infinity, 
-            ease: "linear" 
-          }}
-          style={{ transformStyle: 'preserve-3d', perspective: '1000px' }}
-        >
-          <div 
-            className="w-64 h-64 md:w-96 md:h-96 rounded-full border border-primary/20 opacity-40"
-            style={{ 
-              background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, transparent 50%)',
-              boxShadow: '0 0 60px rgba(99, 102, 241, 0.2), inset 0 0 60px rgba(99, 102, 241, 0.1)'
-            }}
+    <section
+      ref={sectionRef}
+      id="hero"
+      className="min-h-screen flex flex-col justify-between pt-16 pb-8 relative overflow-hidden"
+    >
+      {/* Photo - background on mobile, right side on desktop */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
+        style={{ y: imageY, scale: imageScale }}
+        className="absolute inset-0 md:inset-auto md:right-0 md:top-1/2 md:-translate-y-1/2 md:w-[40vw] md:h-[70vh]"
+      >
+        <div className="relative w-full h-full">
+          <img
+            src="/images/lucas.jpg"
+            alt="Lucas Hegouet"
+            className="w-full h-full object-cover grayscale opacity-30 md:opacity-60 mix-blend-luminosity"
           />
-        </motion.div>
-        
-        {/* Animated ring */}
-        <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 md:w-[500px] md:h-[500px] rounded-full border-2 border-primary/10 opacity-60"
-          animate={{ 
-            rotate: [0, 360],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{ 
-            duration: 25, 
-            repeat: Infinity, 
-            ease: "linear" 
-          }}
-        />
-        <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 md:w-[600px] md:h-[600px] rounded-full border border-primary/5 opacity-40"
-          animate={{ 
-            rotate: [360, 0],
-          }}
-          transition={{ 
-            duration: 35, 
-            repeat: Infinity, 
-            ease: "linear" 
-          }}
-        />
-      </div>
-      
-      {/* Content */}
-      <div className="container px-6 mx-auto relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-8"
-          >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-display tracking-tight leading-[1.1]">
-              <span className="gradient-text">Design</span> que
-              <br />
-              <span className="text-muted-foreground">transforma.</span>
-            </h1>
-            
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed max-w-2xl mx-auto"
-            >
-              Designer de Produto com mais de 10 anos de experiência criando soluções digitais e físicas centradas no usuário no Brasil e na China.
-            </motion.p>
+          {/* Gradients for blending */}
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent md:via-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-background hidden md:block" />
+        </div>
+      </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
-            >
-              <Button 
-                size="lg" 
-                className="bg-primary hover:bg-primary/90 text-white font-medium px-8 py-6 rounded-lg shadow-lg shadow-primary/25"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Entre em contato
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-border/50 hover:bg-secondary/50 px-8 py-6 rounded-lg"
-                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Ver projetos
-              </Button>
-            </motion.div>
-          </motion.div>
+      {/* Client logos carousel - left side on desktop, bottom on mobile */}
+      {/* Desktop: vertical scroll on left */}
+      <div className="absolute left-6 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-3 z-20">
+        <span className="text-[10px] uppercase tracking-widest text-muted-foreground mb-2 -rotate-90 origin-center whitespace-nowrap">
+          Clientes
+        </span>
+        <div className="h-[300px] overflow-hidden relative">
+          <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-background to-transparent z-10" />
+          <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background to-transparent z-10" />
 
-          {/* Testimonial snippet */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.8 }}
-            className="mt-20 flex flex-col items-center gap-4"
-          >
-            <p className="text-sm text-muted-foreground italic">
-              "Design que entrega resultados reais."
-            </p>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/50 to-primary flex items-center justify-center text-sm font-bold">
-                LH
+          <div className="flex flex-col gap-6 animate-scroll-up">
+            {[...clients, ...clients].map((client, index) => (
+              <div
+                key={index}
+                className="w-16 h-12 flex items-center justify-center"
+              >
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  className="w-full h-full object-contain opacity-50 hover:opacity-100 transition-opacity duration-300"
+                />
               </div>
-              <div className="text-left">
-                <p className="text-sm font-medium">Lucas Hegouet</p>
-                <p className="text-xs text-muted-foreground">Product Designer</p>
-              </div>
-            </div>
-          </motion.div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Main content */}
+      <div className="flex-1 flex items-center relative z-10">
+        <motion.div
+          style={{ opacity, scale }}
+          className="container px-6 mx-auto lg:pl-28"
+        >
+          {/* Role badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="flex items-center gap-3 mb-6"
+          >
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <span className="text-sm text-muted-foreground">Product Designer</span>
+          </motion.div>
+
+          {/* Name */}
+          <div className="overflow-hidden">
+            <motion.h1
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              style={{ y: y1, x: x1 }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              className="text-[14vw] md:text-[10vw] lg:text-[9vw] font-bold tracking-tighter leading-[0.85] uppercase"
+            >
+              Lucas
+            </motion.h1>
+          </div>
+          <div className="overflow-hidden">
+            <motion.h1
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              style={{ y: y2, x: x2 }}
+              transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="text-[14vw] md:text-[10vw] lg:text-[9vw] font-bold tracking-tighter leading-[0.85] uppercase text-primary"
+            >
+              Hegouet
+            </motion.h1>
+          </div>
+
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="mt-8 md:mt-12 text-base md:text-xl text-muted-foreground max-w-lg"
+          >
+            Criando produtos digitais e físicos no Brasil e na China há mais de 10 anos.
+          </motion.p>
+        </motion.div>
+      </div>
+
+      {/* Mobile: horizontal logos */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        transition={{ duration: 0.8, delay: 0.6 }}
+        className="lg:hidden relative z-10 mb-6"
       >
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-xs font-mono text-muted-foreground uppercase tracking-widest">Scroll</span>
-          <div className="w-[1px] h-8 bg-gradient-to-b from-primary to-transparent" />
+        <div className="container px-6 mx-auto">
+          <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-3">Clientes</p>
+          <div className="flex gap-6 overflow-x-auto pb-2 scrollbar-hide">
+            {clients.map((client, index) => (
+              <div
+                key={index}
+                className="w-14 h-10 flex-shrink-0 flex items-center justify-center"
+              >
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  className="w-full h-full object-contain opacity-50"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Bottom bar */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.8 }}
+        className="container px-6 mx-auto relative z-10 lg:pl-28"
+      >
+        <div className="flex items-center justify-between pt-6 border-t border-border">
+          <div className="flex items-center gap-8">
+            <a
+              href="#projects"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="group flex items-center gap-2 text-sm hover:text-primary transition-colors duration-300"
+            >
+              <span>Ver trabalhos</span>
+              <span className="w-4 h-px bg-current group-hover:w-8 transition-all duration-300" />
+            </a>
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
+            >
+              Fale comigo
+            </a>
+          </div>
+
+          <motion.div
+            animate={{ y: [0, 4, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="hidden md:flex items-center gap-2 text-muted-foreground"
+          >
+            <span className="text-xs uppercase tracking-widest">Scroll</span>
+            <span className="w-4 h-px bg-current" />
+          </motion.div>
         </div>
       </motion.div>
     </section>

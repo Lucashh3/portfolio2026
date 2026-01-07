@@ -2,68 +2,72 @@ import { motion } from "framer-motion";
 
 const experiences = [
   {
-    role: "Designer de Produto Pleno",
+    role: "Product Designer",
     company: "Bloxs Tech",
-    period: "Jan 2024 – Presente",
-    description: "Liderança de design em produtos financeiros digitais, focando na experiência do investidor e interfaces de alta performance."
+    period: "2024 – Presente",
+    description: "Redesenhando a experiência de investimento em ativos alternativos para milhares de investidores."
   },
   {
-    role: "Cofundador e CPO",
+    role: "Cofundador & CPO",
     company: "Progema Brasil",
-    period: "Mar 2020 – Jan 2024",
-    description: "Gestão completa do ciclo de vida do produto, desde a concepção até o lançamento, alinhando estratégia de negócios com design centrado no usuário."
+    period: "2020 – 2024",
+    description: "Criei do zero uma empresa de IoT, do hardware ao software. Da ideia ao produto nas mãos do cliente."
   },
   {
-    role: "Gerente de Produto",
+    role: "Product Manager",
     company: "Yueyang JiBoRui Tech",
-    period: "Ago 2023 – Jan 2024",
-    description: "Gerenciamento de produtos tecnológicos na China, coordenando equipes internacionais e garantindo a qualidade da entrega final."
+    period: "2023 – 2024",
+    description: "Gerenciei produtos na China, coordenando times internacionais e navegando diferenças culturais."
   }
 ];
 
 export function Experience() {
   return (
-    <section id="experience" className="py-32 border-t border-border/40">
+    <section id="experience" className="py-32 border-t border-border relative">
       <div className="container px-6 mx-auto">
-        
-        <div className="mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-sm text-primary font-medium mb-2">Trajetória</p>
-            <h2 className="text-4xl font-display font-bold tracking-tight gradient-text">Experiência</h2>
-          </motion.div>
-        </div>
 
-        <div className="space-y-6">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex items-center gap-4 mb-20"
+        >
+          <div className="w-12 h-px bg-primary" />
+          <span className="text-sm text-primary font-medium">02</span>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight ml-4">Experiência</h2>
+        </motion.div>
+
+        {/* Experience List */}
+        <div className="max-w-4xl">
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative bg-card/50 border border-border/40 rounded-xl p-8 hover:bg-card hover:border-primary/30 transition-all duration-500"
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="group grid md:grid-cols-12 gap-4 md:gap-8 py-10 border-b border-border hover:border-primary/30 transition-colors duration-500"
             >
-              <div className="grid md:grid-cols-12 gap-6 items-start">
-                <div className="md:col-span-3">
-                  <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-mono rounded-md">
-                    {exp.period}
-                  </span>
-                </div>
-                <div className="md:col-span-9">
-                  <h3 className="text-2xl font-display font-bold mb-1 group-hover:text-primary transition-colors">
-                    {exp.role}
-                  </h3>
-                  <p className="text-lg text-muted-foreground mb-4">
-                    {exp.company}
-                  </p>
-                  <p className="text-foreground/70 leading-relaxed">
-                    {exp.description}
-                  </p>
-                </div>
+              {/* Period */}
+              <div className="md:col-span-3">
+                <span className="text-sm font-mono text-muted-foreground group-hover:text-primary transition-colors duration-300">
+                  {exp.period}
+                </span>
+              </div>
+
+              {/* Content */}
+              <div className="md:col-span-9">
+                <h3 className="text-xl md:text-2xl font-semibold mb-1 group-hover:text-primary transition-colors duration-300">
+                  {exp.role}
+                </h3>
+                <p className="text-muted-foreground mb-4">
+                  {exp.company}
+                </p>
+                <p className="text-foreground/70 leading-relaxed">
+                  {exp.description}
+                </p>
               </div>
             </motion.div>
           ))}

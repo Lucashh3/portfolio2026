@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Experience } from "@/components/sections/Experience";
@@ -16,9 +17,7 @@ export default function Home() {
         <Projects />
         <Contact />
       </main>
-      <footer className="py-8 text-center text-sm text-muted-foreground border-t border-border/40">
-        <p>&copy; {new Date().getFullYear()} Lucas Hegouet. Todos os direitos reservados.</p>
-      </footer>
+      <Footer />
     </div>
   );
 }

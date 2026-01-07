@@ -1,108 +1,235 @@
-import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Link } from "wouter";
+import { useState, useRef } from "react";
+import { ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
     title: "Sistema Inteligente de Kegs",
-    category: "Product Design",
+    subtitle: "Transformando gestão de barris em dados acionáveis",
+    category: "IoT · Hardware · Software",
+    year: "2024",
     image: "https://images.unsplash.com/photo-1535958636474-b021ee887b13?q=80&w=2670&auto=format&fit=crop",
-    description: "Inovação premiada para cervejarias artesanais com design funcional.",
-    link: "/projeto/keg-inteligente"
+    link: "/projeto/keg-inteligente",
+    color: "#3b82f6",
   },
   {
-    title: "Dashboard Financeiro",
-    category: "UI/UX Design",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop",
-    description: "Interface intuitiva para gestão de ativos e investimentos.",
-    link: null
+    title: "Portal White Label",
+    subtitle: "Distribuição de ofertas com compliance nativo",
+    category: "B2B Fintech · Product Design",
+    year: "2024",
+    image: "/images/HomeWL01.jpg",
+    link: "/projeto/bloxs",
+    color: "#8b5cf6",
   },
   {
-    title: "App Mobile IoT",
-    category: "Product Design",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2670&auto=format&fit=crop",
-    description: "Controle de dispositivos inteligentes com foco em usabilidade.",
-    link: null
+    title: "Site Institucional Bloxs",
+    subtitle: "Mercado de capitais para dois públicos distintos",
+    category: "Web Design · B2B Fintech",
+    year: "2024",
+    image: "/images/bloxswebpage.png",
+    link: "/projeto/bloxs-site",
+    color: "#06b6d4",
   },
-  {
-    title: "Plataforma E-commerce",
-    category: "Web Design",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
-    description: "Experiência de compra otimizada para conversão.",
-    link: null
-  }
 ];
+
+function ProjectRow({ project, index }: { project: typeof projects[0]; index: number }) {
+  const [isHovered, setIsHovered] = useState(false);
+  const rowRef = useRef<HTMLDivElement>(null);
+
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const springConfig = { damping: 25, stiffness: 200 };
+  const x = useSpring(mouseX, springConfig);
+  const y = useSpring(mouseY, springConfig);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!rowRef.current) return;
+    const rect = rowRef.current.getBoundingClientRect();
+    mouseX.set(e.clientX - rect.left - 150);
+    mouseY.set(e.clientY - rect.top - 100);
+  };
+
+  const content = (
+    <motion.div
+      ref={rowRef}
+      className="group relative border-b border-border/50 cursor-pointer overflow-hidden"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onMouseMove={handleMouseMove}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, delay: index * 0.15 }}
+    >
+      {/* Floating Image Preview */}
+      <motion.div
+        className="pointer-events-none absolute z-20 w-[300px] h-[200px] rounded-lg overflow-hidden shadow-2xl"
+        style={{ x, y }}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{
+          opacity: isHovered ? 1 : 0,
+          scale: isHovered ? 1 : 0.8,
+        }}
+        transition={{ duration: 0.3 }}
+      >
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-cover"
+        />
+      </motion.div>
+
+      {/* Background Gradient on Hover */}
+      <motion.div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        style={{
+          background: `linear-gradient(90deg, ${project.color}08 0%, transparent 50%)`,
+        }}
+      />
+
+      {/* Content */}
+      <div className="relative z-10 py-8 md:py-12 px-6 md:px-12">
+        <div className="flex items-center justify-between gap-8">
+          {/* Left: Index + Title */}
+          <div className="flex items-center gap-6 md:gap-12 flex-1 min-w-0">
+            {/* Index Number */}
+            <motion.span
+              className="text-4xl md:text-6xl font-bold text-muted-foreground/20 font-mono w-16 md:w-24 flex-shrink-0"
+              animate={{
+                color: isHovered ? project.color : undefined,
+                opacity: isHovered ? 0.5 : 0.2,
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              {String(index + 1).padStart(2, '0')}
+            </motion.span>
+
+            {/* Title + Subtitle */}
+            <div className="min-w-0 flex-1">
+              <motion.h3
+                className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight truncate"
+                animate={{ x: isHovered ? 20 : 0 }}
+                transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+              >
+                {project.title}
+              </motion.h3>
+              <motion.p
+                className="text-muted-foreground mt-1 md:mt-2 text-sm md:text-base truncate"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{
+                  opacity: isHovered ? 1 : 0.7,
+                  y: isHovered ? 0 : 0,
+                  x: isHovered ? 20 : 0,
+                }}
+                transition={{ duration: 0.4, delay: 0.05, ease: [0.23, 1, 0.32, 1] }}
+              >
+                {project.subtitle}
+              </motion.p>
+            </div>
+          </div>
+
+          {/* Right: Category + Year + Arrow */}
+          <div className="hidden md:flex items-center gap-8 flex-shrink-0">
+            <div className="text-right">
+              <p className="text-sm text-muted-foreground">{project.category}</p>
+              <p className="text-sm font-mono text-muted-foreground/60">{project.year}</p>
+            </div>
+
+            <motion.div
+              className="w-12 h-12 rounded-full border border-border flex items-center justify-center"
+              animate={{
+                scale: isHovered ? 1.1 : 1,
+                borderColor: isHovered ? project.color : undefined,
+                backgroundColor: isHovered ? `${project.color}15` : "transparent",
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              <motion.div
+                animate={{
+                  x: isHovered ? 2 : 0,
+                  y: isHovered ? -2 : 0,
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <ArrowUpRight
+                  className="w-5 h-5 transition-colors duration-300"
+                  style={{ color: isHovered ? project.color : undefined }}
+                />
+              </motion.div>
+            </motion.div>
+          </div>
+
+          {/* Mobile Arrow */}
+          <motion.div
+            className="md:hidden w-10 h-10 rounded-full border border-border flex items-center justify-center flex-shrink-0"
+            animate={{
+              borderColor: isHovered ? project.color : undefined,
+            }}
+          >
+            <ArrowUpRight className="w-4 h-4" />
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Bottom Line Animation */}
+      <motion.div
+        className="absolute bottom-0 left-0 h-[2px]"
+        style={{ backgroundColor: project.color }}
+        initial={{ width: "0%" }}
+        animate={{ width: isHovered ? "100%" : "0%" }}
+        transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+      />
+    </motion.div>
+  );
+
+  if (project.link) {
+    return (
+      <Link href={project.link} className="block">
+        {content}
+      </Link>
+    );
+  }
+
+  return content;
+}
 
 export function Projects() {
   return (
-    <section id="projects" className="py-32 border-t border-border/40">
-      <div className="container px-6 mx-auto">
-        
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-sm text-primary font-medium mb-2">Portfólio</p>
-            <h2 className="text-4xl font-display font-bold tracking-tight gradient-text">Projetos Selecionados</h2>
-          </motion.div>
-
-          <motion.a 
-            href="#" 
-            className="text-sm font-medium text-primary hover:underline flex items-center gap-1"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            Ver todos os projetos <ArrowUpRight className="h-4 w-4" />
-          </motion.a>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((project, index) => {
-            const content = (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative aspect-[4/3] bg-card rounded-xl overflow-hidden cursor-pointer border border-border/40 hover:border-primary/40 transition-all duration-500"
-              >
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-100"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent p-8 flex flex-col justify-end">
-                  <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <span className="inline-block px-3 py-1 bg-primary/20 text-primary text-xs font-mono rounded-md mb-3">
-                      {project.category}
-                    </span>
-                    <h3 className="text-2xl font-display font-bold text-white mb-2 flex items-center gap-2">
-                      {project.title}
-                      <ArrowUpRight className="h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </h3>
-                    <p className="text-white/70 text-sm max-w-sm opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500">
-                      {project.description}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            );
-
-            if (project.link) {
-              return (
-                <Link key={index} href={project.link}>
-                  <a>{content}</a>
-                </Link>
-              );
-            }
-            return <div key={index}>{content}</div>;
-          })}
-        </div>
-
+    <section id="projects" className="py-24 md:py-32">
+      {/* Header */}
+      <div className="container px-6 mx-auto mb-16 md:mb-24">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+        >
+          <div className="flex items-center gap-4 mb-6">
+            <motion.div
+              className="w-12 h-[1px] bg-primary"
+              initial={{ width: 0 }}
+              whileInView={{ width: 48 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            />
+            <span className="text-sm text-primary font-mono tracking-wider">TRABALHOS SELECIONADOS</span>
+          </div>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-4xl">
+            Projetos que transformam
+            <span className="text-muted-foreground"> ideias em experiências</span>
+          </h2>
+        </motion.div>
       </div>
+
+      {/* Projects List */}
+      <div className="border-t border-border/50">
+        {projects.map((project, index) => (
+          <ProjectRow key={project.title} project={project} index={index} />
+        ))}
+      </div>
+
     </section>
   );
 }
