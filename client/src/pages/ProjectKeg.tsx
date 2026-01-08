@@ -35,10 +35,10 @@ const results = [
 ];
 
 const galleryImages = [
-  "https://images.unsplash.com/photo-1559526324-593bc073d938?q=80&w=2670&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1584225064785-c62a8b43d148?q=80&w=2574&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?q=80&w=2670&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1532634922-8fe0b757fb13?q=80&w=2672&auto=format&fit=crop"
+  "/images/keg-1.jpg",
+  "/images/keg-2.jpg",
+  "/images/keg-3.jpg",
+  "/images/keg-4.jpg"
 ];
 
 export default function ProjectKeg() {
