@@ -90,7 +90,7 @@ function ProjectRow({ project, index }: { project: typeof projects[0]; index: nu
       />
 
       {/* Content */}
-      <div className="relative z-10 py-8 md:py-12 px-6 md:px-12">
+      <div className="relative z-10 py-8 md:py-12 container px-6 mx-auto">
         <div className="flex items-center justify-between gap-8">
           {/* Left: Index + Title */}
           <div className="flex items-center gap-6 md:gap-12 flex-1 min-w-0">
