@@ -92,14 +92,16 @@ export default function ProjectKeg() {
           </div>
         </section>
 
-        {/* Hero Image */}
+        {/* Hero Video */}
         <section className="border-b border-border">
           <div className="container px-6 mx-auto">
-            <div className="aspect-[21/9] overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1535958636474-b021ee887b13?q=80&w=2670&auto=format&fit=crop"
-                alt="Keg System"
-                className="w-full h-full object-cover"
+            <div className="aspect-video overflow-hidden">
+              <iframe
+                src="https://www.youtube.com/embed/UJOou23kyds"
+                title="Sistema Inteligente de Kegs"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
               />
             </div>
           </div>
