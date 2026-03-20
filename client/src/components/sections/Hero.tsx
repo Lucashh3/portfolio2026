@@ -60,7 +60,7 @@ export function Hero() {
       {/* Desktop: vertical scroll on left */}
       <div className="absolute left-6 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-3 z-20">
         <span className="text-[10px] uppercase tracking-widest text-muted-foreground mb-2 -rotate-90 origin-center whitespace-nowrap">
-          Clientes
+          Clients
         </span>
         <div className="h-[300px] overflow-hidden relative">
           <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-background to-transparent z-10" />
@@ -131,7 +131,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="mt-8 md:mt-12 text-base md:text-xl text-muted-foreground max-w-lg"
           >
-            Criando produtos digitais e físicos no Brasil e na China há mais de 10 anos.
+            Designing digital and physical products across Brazil and China for over 10 years.
           </motion.p>
         </motion.div>
       </div>
@@ -179,7 +179,7 @@ export function Hero() {
               }}
               className="group flex items-center gap-2 text-sm hover:text-primary transition-colors duration-300"
             >
-              <span>Ver trabalhos</span>
+              <span>See my work</span>
               <span className="w-4 h-px bg-current group-hover:w-8 transition-all duration-300" />
             </a>
             <a
@@ -190,7 +190,7 @@ export function Hero() {
               }}
               className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
-              Fale comigo
+              Get in touch
             </a>
           </div>
 

@@ -26,16 +26,16 @@ export function Contact() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             />
-            <span className="text-sm text-primary font-mono tracking-wider">04 — CONTATO</span>
+            <span className="text-sm text-primary font-mono tracking-wider">04 — CONTACT</span>
           </div>
 
           {/* Main CTA */}
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-8">
-            Bora trocar uma ideia?
+            Let's build something together?
           </h2>
 
           <p className="text-xl text-muted-foreground mb-12 max-w-2xl">
-            Sempre aberto pra novos projetos, parcerias criativas, ou só um café virtual.
+            Always open for new projects, creative partnerships, or just a virtual coffee.
           </p>
 
           {/* Email - Big CTA */}
@@ -51,7 +51,7 @@ export function Contact() {
 
           {/* Social Links */}
           <div className="pt-8 border-t border-border">
-            <p className="text-sm text-muted-foreground mb-6">Me encontra também em</p>
+            <p className="text-sm text-muted-foreground mb-6">Find me on</p>
             <div className="flex flex-wrap gap-6">
               {socialLinks.map((link, index) => (
                 <motion.a

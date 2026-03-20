@@ -4,20 +4,20 @@ const experiences = [
   {
     role: "Product Designer",
     company: "Bloxs Tech",
-    period: "2024 – Presente",
-    description: "Redesenhando a experiência de investimento em ativos alternativos para milhares de investidores."
+    period: "2024 – Present",
+    description: "Redesigning the investment experience in alternative assets for thousands of investors."
   },
   {
-    role: "Cofundador & CPO",
+    role: "Co-founder & CPO",
     company: "Progema Brasil",
     period: "2020 – 2024",
-    description: "Criei do zero uma empresa de IoT, do hardware ao software. Da ideia ao produto nas mãos do cliente."
+    description: "Built an IoT company from scratch, from hardware to software. From idea to product in the hands of real customers."
   },
   {
     role: "Product Manager",
     company: "Yueyang JiBoRui Tech",
     period: "2023 – 2024",
-    description: "Gerenciei produtos na China, coordenando times internacionais e navegando diferenças culturais."
+    description: "Managed products in China, coordinating international teams and navigating cultural differences."
   }
 ];
 
@@ -36,9 +36,9 @@ export function Experience() {
         >
           <div className="flex items-center gap-4 mb-4">
             <div className="w-12 h-px bg-primary" />
-            <span className="text-sm text-primary font-mono tracking-wider">02 — EXPERIÊNCIA</span>
+            <span className="text-sm text-primary font-mono tracking-wider">02 — EXPERIENCE</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Onde já trabalhei</h2>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Where I've worked</h2>
         </motion.div>
 
         {/* Experience List */}

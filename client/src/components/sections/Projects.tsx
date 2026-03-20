@@ -5,17 +5,17 @@ import { ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
-    title: "Sistema Inteligente de Kegs",
-    subtitle: "Transformando gestão de barris em dados acionáveis",
-    category: "IoT · Hardware · Software",
+    title: "AiCerv Smart Beverage System",
+    subtitle: "Designing an IoT ecosystem for craft breweries",
+    category: "Product Design · IoT · Hardware",
     year: "2024",
-    image: "https://images.unsplash.com/photo-1535958636474-b021ee887b13?q=80&w=2670&auto=format&fit=crop",
+    image: "/images/beveratorwelson.png",
     link: "/projeto/keg-inteligente",
     color: "#3b82f6",
   },
   {
-    title: "Portal White Label",
-    subtitle: "Distribuição de ofertas com compliance nativo",
+    title: "White Label Investment Portal",
+    subtitle: "Turning financial compliance into a seamless experience",
     category: "B2B Fintech · Product Design",
     year: "2024",
     image: "/images/HomeWL01.jpg",
@@ -23,8 +23,8 @@ const projects = [
     color: "#8b5cf6",
   },
   {
-    title: "Site Institucional Bloxs",
-    subtitle: "Mercado de capitais para dois públicos distintos",
+    title: "Bloxs Institutional Website",
+    subtitle: "One platform, two audiences, zero confusion",
     category: "Web Design · B2B Fintech",
     year: "2024",
     image: "/images/bloxswebpage.png",
@@ -214,11 +214,11 @@ export function Projects() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             />
-            <span className="text-sm text-primary font-mono tracking-wider">03 — TRABALHOS</span>
+            <span className="text-sm text-primary font-mono tracking-wider">03 — WORK</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight max-w-4xl">
-            Projetos que transformam
-            <span className="text-muted-foreground"> ideias em experiências</span>
+            Projects that turn
+            <span className="text-muted-foreground"> ideas into experiences</span>
           </h2>
         </motion.div>
       </div>

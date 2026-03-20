@@ -22,9 +22,9 @@ export function About() {
           >
             <div className="flex items-center gap-4 mb-4">
               <div className="w-12 h-px bg-primary" />
-              <span className="text-sm text-primary font-mono tracking-wider">01 — SOBRE</span>
+              <span className="text-sm text-primary font-mono tracking-wider">01 — ABOUT</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Quem sou eu</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Who I am</h2>
           </motion.div>
 
           {/* Right column - Content */}
@@ -38,15 +38,13 @@ export function About() {
               className="space-y-6"
             >
               <p className="text-xl md:text-2xl leading-relaxed text-foreground/90">
-                Brasileiro, designer, e obcecado por criar coisas que funcionam.
+                Brazilian, designer, and obsessed with building things that work.
               </p>
               <p className="text-lg leading-relaxed text-muted-foreground">
-                Nos últimos 10 anos, passei do Brasil à China liderando projetos de produto —
-                de hardware IoT a dashboards financeiros. Acredito que bom design é invisível:
-                resolve o problema e sai do caminho.
+                Over the past 10 years, I've worked across Brazil and China leading product projects, from IoT hardware to financial dashboards. I believe good design is invisible: it solves the problem and gets out of the way.
               </p>
               <p className="text-lg leading-relaxed text-muted-foreground">
-                Atualmente na Bloxs, transformando como pessoas investem em ativos alternativos.
+                Currently at Bloxs, rethinking how people invest in alternative assets.
               </p>
             </motion.div>
 
@@ -60,15 +58,15 @@ export function About() {
             >
               <div>
                 <p className="text-3xl font-bold text-primary">10+</p>
-                <p className="text-sm text-muted-foreground mt-1">Anos de experiência</p>
+                <p className="text-sm text-muted-foreground mt-1">Years of experience</p>
               </div>
               <div>
                 <p className="text-3xl font-bold">2</p>
-                <p className="text-sm text-muted-foreground mt-1">Países (Brasil & China)</p>
+                <p className="text-sm text-muted-foreground mt-1">Countries (Brazil & China)</p>
               </div>
               <div>
                 <p className="text-3xl font-bold">50+</p>
-                <p className="text-sm text-muted-foreground mt-1">Produtos lançados</p>
+                <p className="text-sm text-muted-foreground mt-1">Products shipped</p>
               </div>
             </motion.div>
 
@@ -80,7 +78,7 @@ export function About() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="pt-8 border-t border-border"
             >
-              <p className="text-sm text-muted-foreground mb-6">Ferramentas do dia a dia</p>
+              <p className="text-sm text-muted-foreground mb-6">Daily tools</p>
               <div className="flex flex-wrap gap-3">
                 {skills.map((skill) => (
                   <span

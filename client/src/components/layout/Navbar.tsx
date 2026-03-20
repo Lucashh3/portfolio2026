@@ -4,10 +4,10 @@ import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 
 const navItems = [
-  { name: "Sobre", href: "about" },
-  { name: "Experiência", href: "experience" },
-  { name: "Projetos", href: "projects" },
-  { name: "Contato", href: "contact" },
+  { name: "About", href: "about" },
+  { name: "Experience", href: "experience" },
+  { name: "Projects", href: "projects" },
+  { name: "Contact", href: "contact" },
 ];
 
 function MagneticButton({ children, className }: { children: React.ReactNode; className?: string }) {
@@ -252,11 +252,11 @@ export function Navbar() {
                 className="absolute bottom-12 left-6 right-6 flex justify-between items-end text-sm text-muted-foreground"
               >
                 <div>
-                  <p className="mb-1">Disponível para projetos</p>
+                  <p className="mb-1">Available for projects</p>
                   <p className="text-foreground">lucasheg@yahoo.com</p>
                 </div>
                 <div className="text-right">
-                  <p>São Paulo, Brasil</p>
+                  <p>São Paulo, Brazil</p>
                 </div>
               </motion.div>
             </div>

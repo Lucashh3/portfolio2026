@@ -4,43 +4,43 @@ import { ArrowLeft, Layout, Users, Shield, Zap, BarChart3, Target } from "lucide
 import { Link } from "wouter";
 
 const challenges = [
-  "Comunicar produtos complexos de mercado de capitais de forma acessível",
-  "Atender dois públicos distintos: emissores (sell side) e investidores (buy side)",
-  "Transmitir credibilidade institucional sem parecer engessado",
-  "Estrutura regulatória densa (CVM 88, 160, 175) que precisa estar visível mas não assustar"
+  "Communicating complex capital markets products in a way anyone can understand",
+  "Serving two completely different audiences: issuers (sell side) and investors (buy side)",
+  "Conveying institutional credibility without feeling stiff or corporate",
+  "Dense regulatory framework (CVM 88, 160, 175) that needs to be visible but not intimidating"
 ];
 
 const solutions = [
-  { icon: Layout, title: "Arquitetura Clara", description: "Navegação segmentada por público: quem emite e quem investe encontram caminhos distintos" },
-  { icon: Users, title: "Linguagem Adaptada", description: "Mesmo produto, comunicação diferente. Sell side quer escala, buy side quer oportunidade" },
-  { icon: Shield, title: "Confiança Visível", description: "Selos ANBIMA, certificações de segurança, subsidiárias reguladas. Tudo na home" },
-  { icon: Zap, title: "CTAs Estratégicos", description: "Agendar demo, criar conta, falar com time. Sempre um próximo passo claro" }
+  { icon: Layout, title: "Clear Architecture", description: "Navigation segmented by audience. Issuers and investors find separate, dedicated paths" },
+  { icon: Users, title: "Adapted Language", description: "Same product, different messaging. Sell side wants scale, buy side wants opportunity" },
+  { icon: Shield, title: "Visible Trust", description: "ANBIMA seals, security certifications, regulated subsidiaries. All on the homepage" },
+  { icon: Zap, title: "Strategic CTAs", description: "Schedule a demo, create an account, talk to the team. Always a clear next step" }
 ];
 
 const processSteps = [
-  { step: "01", title: "Benchmark", description: "Analisar concorrentes e referências do mercado financeiro" },
-  { step: "02", title: "Arquitetura", description: "Definir hierarquia de informação e fluxos por persona" },
-  { step: "03", title: "Wireframes", description: "Estruturar páginas e validar com stakeholders" },
-  { step: "04", title: "Visual Design", description: "Aplicar identidade e criar componentes" },
-  { step: "05", title: "Implementação", description: "Desenvolver com foco em performance e SEO" }
+  { step: "01", title: "Benchmark", description: "Analyzed competitors and references across the financial sector" },
+  { step: "02", title: "Architecture", description: "Defined information hierarchy and flows per persona" },
+  { step: "03", title: "Wireframes", description: "Structured pages and validated with stakeholders" },
+  { step: "04", title: "Visual Design", description: "Applied brand identity and built the component system" },
+  { step: "05", title: "Implementation", description: "Developed with a focus on performance and SEO" }
 ];
 
 const designDecisions = [
   {
-    decision: "Azul primário (#2E61FF)",
-    rationale: "Transmite confiança e tecnologia. Padrão do setor financeiro, mas com tom mais vibrante"
+    decision: "Primary blue (#2E61FF)",
+    rationale: "Conveys trust and technology. Standard in finance, but with a more vibrant tone to stand out"
   },
   {
-    decision: "Cards com glassmorphism",
-    rationale: "Visual moderno sem perder legibilidade. Diferencia dos sites tradicionais de banco"
+    decision: "Glassmorphism cards",
+    rationale: "Modern look without sacrificing readability. Sets it apart from traditional bank websites"
   },
   {
-    decision: "Navegação expandível",
-    rationale: "Muitos produtos e serviços. Menu mega dropdown organiza sem poluir a barra principal"
+    decision: "Expandable navigation",
+    rationale: "Lots of products and services. Mega dropdown menu organizes everything without cluttering the main bar"
   },
   {
-    decision: "Depoimentos em carrossel",
-    rationale: "Social proof forte com nomes reais. Rotação mantém a seção dinâmica"
+    decision: "Testimonial carousel",
+    rationale: "Strong social proof with real names. Rotation keeps the section dynamic"
   }
 ];
 
@@ -57,7 +57,7 @@ export default function ProjectBloxsSite() {
               href="/#projects"
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-200 mb-12"
             >
-              <ArrowLeft className="h-4 w-4" /> Voltar aos projetos
+              <ArrowLeft className="h-4 w-4" /> Back to projects
             </Link>
 
             {/* Meta */}
@@ -70,12 +70,11 @@ export default function ProjectBloxsSite() {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] max-w-4xl mb-8">
-              Site Institucional Bloxs
+              Designing a Dual-Journey Experience for a Capital Markets Platform
             </h1>
 
             <p className="text-xl text-muted-foreground max-w-2xl">
-              Como comunicar uma plataforma complexa de mercado de capitais para dois públicos
-              completamente diferentes — sem simplificar demais nem complicar.
+              How do you sell the same complex financial platform to two completely different audiences without oversimplifying or overcomplicating? That was the challenge.
             </p>
           </div>
         </section>
@@ -84,7 +83,7 @@ export default function ProjectBloxsSite() {
         <section className="border-b border-border">
           <img
             src="/images/bloxswebpage.png"
-            alt="Site Institucional Bloxs"
+            alt="Bloxs Institutional Website"
             className="w-full h-auto object-cover"
           />
         </section>
@@ -94,18 +93,14 @@ export default function ProjectBloxsSite() {
           <div className="container px-6 mx-auto">
             <div className="grid md:grid-cols-12 gap-12">
               <div className="md:col-span-4">
-                <h2 className="text-2xl font-bold tracking-tight">O Projeto</h2>
+                <h2 className="text-2xl font-bold tracking-tight">The Project</h2>
               </div>
               <div className="md:col-span-8">
                 <p className="text-xl leading-relaxed text-foreground/90 mb-6">
-                  A Bloxs é uma plataforma de tecnologia para mercado de capitais. Oferece desde
-                  originação digital até securitização, passando por distribuição e gestão fiduciária.
-                  Tudo isso operando através de subsidiárias reguladas e membros da ANBIMA.
+                  Bloxs is a technology platform for capital markets. It handles everything from digital origination to securitization, distribution, and fiduciary management. All of it runs through regulated subsidiaries and ANBIMA-certified entities.
                 </p>
                 <p className="text-lg leading-relaxed text-muted-foreground">
-                  O desafio do site institucional: explicar essa cadeia completa de serviços para
-                  quem quer emitir (boutiques, gestoras) e para quem quer investir (institucionais).
-                  Públicos diferentes, necessidades diferentes, mesmo endereço.
+                  The website had to explain this entire chain of services to two very different groups: issuers looking to raise capital (boutiques, asset managers) and institutional investors looking for opportunities. Different audiences, different needs, same address.
                 </p>
               </div>
             </div>
@@ -117,10 +112,10 @@ export default function ProjectBloxsSite() {
           <div className="container px-6 mx-auto">
             <div className="grid md:grid-cols-12 gap-12">
               <div className="md:col-span-4">
-                <h2 className="text-2xl font-bold tracking-tight">Meu Papel</h2>
+                <h2 className="text-2xl font-bold tracking-tight">My Role</h2>
                 <p className="text-muted-foreground mt-2">Product Designer</p>
                 <p className="text-sm text-muted-foreground mt-4">
-                  Em colaboração com{" "}
+                  In collaboration with{" "}
                   <a
                     href="https://www.insany.design/pt-BR"
                     target="_blank"
@@ -135,19 +130,19 @@ export default function ProjectBloxsSite() {
                 <ul className="space-y-4 text-lg">
                   <li className="flex gap-3">
                     <span className="text-primary">→</span>
-                    <span>Definir arquitetura de informação para dois públicos distintos</span>
+                    <span>Defined the information architecture for two distinct audiences</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-primary">→</span>
-                    <span>Criar hierarquia visual que prioriza sem esconder</span>
+                    <span>Created a visual hierarchy that prioritizes without hiding</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-primary">→</span>
-                    <span>Traduzir produtos técnicos em propostas de valor claras</span>
+                    <span>Translated technical products into clear value propositions</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-primary">→</span>
-                    <span>Equilibrar credibilidade institucional com visual moderno</span>
+                    <span>Balanced institutional credibility with a modern, approachable look</span>
                   </li>
                 </ul>
               </div>
@@ -158,16 +153,12 @@ export default function ProjectBloxsSite() {
         {/* Problem Section */}
         <section className="py-24 border-b border-border">
           <div className="container px-6 mx-auto">
-            <h2 className="text-2xl font-bold tracking-tight mb-6">O Problema</h2>
+            <h2 className="text-2xl font-bold tracking-tight mb-6">The Problem</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mb-6">
-              Sites de fintechs B2B do mercado de capitais costumam cair em dois extremos:
-              ou são tão técnicos que só especialista entende, ou são tão genéricos que não
-              dizem nada. A Bloxs precisava de um meio termo.
+              B2B fintech websites in capital markets usually fall into one of two extremes: either so technical that only specialists understand them, or so generic they say nothing at all. Bloxs needed a middle ground.
             </p>
             <p className="text-lg text-muted-foreground max-w-3xl mb-12">
-              Além disso, a empresa opera com 4 subsidiárias reguladas, é membro da ANBIMA em
-              4 categorias, e atende tanto quem emite quanto quem investe. Como mostrar tudo
-              isso sem virar um catálogo infinito?
+              On top of that, the company operates with 4 regulated subsidiaries, holds ANBIMA membership in 4 categories, and serves both issuers and investors. How do you show all of that without turning the site into an endless catalog?
             </p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -184,9 +175,9 @@ export default function ProjectBloxsSite() {
         {/* Two Audiences Section */}
         <section className="py-24 border-b border-border bg-card/30">
           <div className="container px-6 mx-auto">
-            <h2 className="text-2xl font-bold tracking-tight mb-4">Dois Públicos, Uma Home</h2>
+            <h2 className="text-2xl font-bold tracking-tight mb-4">Two Audiences, One Homepage</h2>
             <p className="text-muted-foreground mb-12 max-w-2xl">
-              A segmentação acontece logo no início. Quem você é define o que você vê primeiro.
+              The split happens right away. Who you are defines what you see first.
             </p>
 
             <div className="grid md:grid-cols-2 gap-8">
@@ -195,22 +186,22 @@ export default function ProjectBloxsSite() {
                   <div className="w-3 h-3 rounded-full bg-blue-500" />
                   <span className="text-sm font-mono text-blue-400">SELL SIDE</span>
                 </div>
-                <h3 className="text-xl font-semibold mb-4">Emissores</h3>
+                <h3 className="text-xl font-semibold mb-4">Issuers</h3>
                 <p className="text-muted-foreground mb-6">
-                  Boutiques, gestoras, securitizadoras que querem estruturar e distribuir operações.
+                  Boutiques, asset managers, and securitizers looking to structure and distribute deals.
                 </p>
                 <ul className="space-y-3">
                   <li className="flex gap-3 text-sm">
                     <Target className="h-4 w-4 text-blue-400 flex-shrink-0 mt-0.5" />
-                    <span>Plataforma completa para estruturação e emissão</span>
+                    <span>Full platform for structuring and issuing</span>
                   </li>
                   <li className="flex gap-3 text-sm">
                     <Target className="h-4 w-4 text-blue-400 flex-shrink-0 mt-0.5" />
-                    <span>Conformidade com CVM 88, 160, 175</span>
+                    <span>Compliance with CVM 88, 160, 175</span>
                   </li>
                   <li className="flex gap-3 text-sm">
                     <Target className="h-4 w-4 text-blue-400 flex-shrink-0 mt-0.5" />
-                    <span>Distribuição coordenada e roadshow digital</span>
+                    <span>Coordinated distribution and digital roadshow</span>
                   </li>
                 </ul>
               </div>
@@ -220,22 +211,22 @@ export default function ProjectBloxsSite() {
                   <div className="w-3 h-3 rounded-full bg-purple-500" />
                   <span className="text-sm font-mono text-purple-400">BUY SIDE</span>
                 </div>
-                <h3 className="text-xl font-semibold mb-4">Investidores Institucionais</h3>
+                <h3 className="text-xl font-semibold mb-4">Institutional Investors</h3>
                 <p className="text-muted-foreground mb-6">
-                  Fundos, family offices, assets que buscam oportunidades de investimento.
+                  Funds, family offices, and asset managers looking for investment opportunities.
                 </p>
                 <ul className="space-y-3">
                   <li className="flex gap-3 text-sm">
                     <BarChart3 className="h-4 w-4 text-purple-400 flex-shrink-0 mt-0.5" />
-                    <span>Descoberta de operações com filtros inteligentes</span>
+                    <span>Deal discovery with smart filters</span>
                   </li>
                   <li className="flex gap-3 text-sm">
                     <BarChart3 className="h-4 w-4 text-purple-400 flex-shrink-0 mt-0.5" />
-                    <span>Interação direta com emissores</span>
+                    <span>Direct interaction with issuers</span>
                   </li>
                   <li className="flex gap-3 text-sm">
                     <BarChart3 className="h-4 w-4 text-purple-400 flex-shrink-0 mt-0.5" />
-                    <span>Dados para decisão: documentos, métricas, histórico</span>
+                    <span>Decision-ready data: documents, metrics, track record</span>
                   </li>
                 </ul>
               </div>
@@ -246,7 +237,7 @@ export default function ProjectBloxsSite() {
         {/* Design Decisions */}
         <section className="py-24 border-b border-border">
           <div className="container px-6 mx-auto">
-            <h2 className="text-2xl font-bold tracking-tight mb-12">Decisões de Design</h2>
+            <h2 className="text-2xl font-bold tracking-tight mb-12">Design Decisions</h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
               {solutions.map((solution, index) => (
@@ -259,7 +250,7 @@ export default function ProjectBloxsSite() {
             </div>
 
             <div className="mt-16 pt-8 border-t border-border">
-              <h3 className="font-semibold mb-6">Por que essas escolhas:</h3>
+              <h3 className="font-semibold mb-6">Why these choices:</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 {designDecisions.map((item, index) => (
                   <div key={index} className="flex gap-4">
@@ -278,7 +269,7 @@ export default function ProjectBloxsSite() {
         {/* Process Section */}
         <section className="py-24 border-b border-border">
           <div className="container px-6 mx-auto">
-            <h2 className="text-2xl font-bold tracking-tight mb-12">Processo</h2>
+            <h2 className="text-2xl font-bold tracking-tight mb-12">Process</h2>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
               {processSteps.map((step, index) => (
@@ -297,16 +288,16 @@ export default function ProjectBloxsSite() {
           <div className="container px-6 mx-auto">
             <div className="max-w-2xl">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                Quer saber mais?
+                Let's talk
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Estou sempre aberto a novos desafios e parcerias criativas.
+                I like making complex things feel simple. If you have a product that needs that kind of thinking, I'd love to hear about it.
               </p>
               <a
                 href="/#contact"
                 className="text-primary hover:text-primary/80 transition-colors duration-200"
               >
-                Entre em contato →
+                Get in touch →
               </a>
             </div>
           </div>

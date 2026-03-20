@@ -13,124 +13,124 @@ const heroImages = [
 ];
 
 const challenges = [
-  "CVM 88 tem limite anual por investidor. CVM 160 não tem. Fluxos diferentes, mesma base",
-  "Ambiente deslogado pode mostrar mais ou menos, dependendo da norma. Onde está a linha?",
-  "Aceites, KYC, assinatura eletrônica, pagamento. Tudo precisa de registro para auditoria",
-  "Documento mudou no meio da oferta? Versão antiga ou nova? Precisa re-aceite?"
+  "CVM 88 caps how much each person can invest per year. CVM 160 doesn't. Two different logics, one shared codebase",
+  "What can you show to someone who hasn't logged in? Depends on which regulation applies. The line is blurry",
+  "Consent forms, KYC, e-signatures, payments. Every step needs an audit trail",
+  "What if a document changes mid-offering? Old version or new? Does the investor need to re-accept?"
 ];
 
 const solutions = [
-  { icon: Layers, title: "Camadas Separadas", description: "Marca customizável, regras intocáveis. Layout reutilizável entre 88 e 160" },
-  { icon: UserCheck, title: "Elegibilidade Inteligente", description: "Limite anual? Checa. Perfil investidor? Valida. Tudo antes do botão de aporte" },
-  { icon: Shield, title: "Auditoria Nativa", description: "Aceites com timestamp, versão do documento, log de cada etapa. Pronto pra fiscalização" },
-  { icon: GitBranch, title: "Fluxo Adaptável", description: "Mesmo motor, flags diferentes. CVM 88 checa limite, CVM 160 não. Sem duplicação" }
+  { icon: Layers, title: "Separated Layers", description: "Brand is customizable. Rules are untouchable. Layout is reusable across both CVM 88 and 160" },
+  { icon: UserCheck, title: "Smart Eligibility", description: "Annual limit? Checked. Investor profile? Validated. Everything happens before the invest button" },
+  { icon: Shield, title: "Built-in Audit Trail", description: "Every consent has a timestamp, document version, and step-by-step log. Ready for regulatory review" },
+  { icon: GitBranch, title: "Adaptive Flow", description: "Same engine, different flags. CVM 88 checks limits, CVM 160 doesn't. No code duplication" }
 ];
 
 const processSteps = [
-  { step: "01", title: "Entender", description: "Conversar com jurídico, compliance, operação" },
-  { step: "02", title: "Estruturar", description: "Definir o que muda e o que não muda" },
-  { step: "03", title: "Desenhar fluxos", description: "Mapear cada caminho possível" },
-  { step: "04", title: "Criar telas", description: "Componentes que funcionam em qualquer parceiro" },
-  { step: "05", title: "Testar", description: "Validar os casos estranhos com engenharia" }
+  { step: "01", title: "Understand", description: "Sat down with legal, compliance, and ops teams" },
+  { step: "02", title: "Structure", description: "Defined what changes and what stays fixed" },
+  { step: "03", title: "Map Flows", description: "Charted every possible user path" },
+  { step: "04", title: "Design Screens", description: "Built components that work across any partner" },
+  { step: "05", title: "Test", description: "Validated edge cases with engineering" }
 ];
 
 const flowSteps = [
   {
     number: "01",
-    title: "Ver as opções",
-    description: "Todas as ofertas num lugar só. Filtra por prazo, risco, tipo. Sem precisar ser especialista pra entender.",
+    title: "Browse offers",
+    description: "All investment offers in one place. Filter by term, risk, type. You don't need to be an expert to understand what's available.",
     icon: Eye
   },
   {
     number: "02",
-    title: "Entender a oferta",
-    description: "O que é, quanto rende, quais os riscos, quando vence. Tudo na mesma página, documentos incluídos.",
+    title: "Understand the offer",
+    description: "What it is, expected return, risks, maturity date. Everything on one page, documents included.",
     icon: Layers
   },
   {
     number: "03",
-    title: "Checar se pode investir",
-    description: "Algumas perguntas rápidas pra confirmar se essa oferta faz sentido pro seu perfil. Resposta na hora.",
+    title: "Check eligibility",
+    description: "A few quick questions to confirm this offer fits your profile. Answer right away.",
     icon: UserCheck
   },
   {
     number: "04",
-    title: "Reservar",
-    description: "Escolhe o valor, confere os pontos principais, confirma. Sem surpresa, sem letra miúda escondida.",
+    title: "Reserve",
+    description: "Pick the amount, review the key points, confirm. No surprises, no hidden fine print.",
     icon: CheckCircle
   },
   {
     number: "05",
-    title: "Acompanhar",
-    description: "Reservou? Agora é só acompanhar. Status atualizado, documentos guardados, próximos passos claros.",
+    title: "Track",
+    description: "Once reserved, just follow along. Updated status, stored documents, clear next steps.",
     icon: GitBranch
   }
 ];
 
 const layers = [
   {
-    title: "A Oferta",
-    subtitle: "O que você está comprando",
+    title: "The Offer",
+    subtitle: "What you're buying",
     items: [
-      "Tudo sobre a oferta numa página só",
-      "Documentos sempre à mão, não escondidos",
-      "Seção 'antes de investir, saiba que...'",
-      "Fácil de comparar com outras ofertas"
+      "Everything about the offer on one page",
+      "Documents always accessible, never buried",
+      "'Before you invest, know this...' section",
+      "Easy to compare with other offers"
     ],
     color: "bg-blue-500"
   },
   {
-    title: "Seu Perfil",
-    subtitle: "Você pode participar?",
+    title: "Your Profile",
+    subtitle: "Are you eligible?",
     items: [
-      "Perguntas diretas, sem juridiquês",
-      "Resposta clara: pode, não pode, falta isso",
-      "Barra de progresso mostrando o que falta",
-      "Se não pode, explica por quê"
+      "Straightforward questions, no legal jargon",
+      "Clear answer: yes, no, or here's what's missing",
+      "Progress bar showing what's left",
+      "If you can't invest, explains why"
     ],
     color: "bg-green-500"
   },
   {
-    title: "As Regras",
-    subtitle: "O que não pode pular",
+    title: "The Rules",
+    subtitle: "What can't be skipped",
     items: [
-      "Aceites e confirmações obrigatórios",
-      "Registro de cada passo da jornada",
-      "Tudo guardado pra auditoria",
-      "Controle de versão dos documentos"
+      "Required consents and confirmations",
+      "Every step of the journey is logged",
+      "Everything stored for audit",
+      "Document version control"
     ],
     color: "bg-purple-500"
   }
 ];
 
 const edgeCases = [
-  "Investidor atingiu limite anual na CVM 88? Bloqueia aporte, explica o motivo, sugere ofertas CVM 160",
-  "Prospecto atualizado durante captação? Força re-aceite com versão nova, registra tudo",
-  "Quer ver simulação de rentabilidade sem logar? OK na 160 com disclaimer, mais restrito na 88",
-  "Assinatura eletrônica válida? Checagem de requisitos específicos por tipo de documento",
-  "Oferta dispensada de registro? Ainda tem documentos obrigatórios. Mostra o que precisa"
+  "Investor hit their annual limit under CVM 88? Block the investment, explain why, suggest CVM 160 offers instead",
+  "Prospectus updated during fundraising? Force re-consent with the new version, log everything",
+  "Want to see a return simulation without logging in? OK under CVM 160 with disclaimer, more restricted under CVM 88",
+  "Is the e-signature valid? Check specific requirements for each document type",
+  "Offer exempt from registration? Still has mandatory documents. Show what's needed"
 ];
 
 const regulationComparison = [
   {
-    aspect: "Limite de Investimento",
-    cvm88: "Limite anual por investidor. Precisa calcular, persistir e checar",
-    cvm160: "Sem limite. Investidor qualificado ou não, pode aportar"
+    aspect: "Investment Limit",
+    cvm88: "Annual limit per investor. Needs to be calculated, persisted, and checked",
+    cvm160: "No limit. Qualified investor or not, they can invest"
   },
   {
-    aspect: "Ambiente Deslogado",
-    cvm88: "Informações limitadas. Evitar convite direto ao aporte",
-    cvm160: "Divulgação maior permitida, com advertências de risco obrigatórias"
+    aspect: "Logged-Out View",
+    cvm88: "Limited info. Avoid direct calls to action for investment",
+    cvm160: "More disclosure allowed, with mandatory risk warnings"
   },
   {
-    aspect: "Documentos Obrigatórios",
-    cvm88: "Documentos legais + dados operacionais. Versionamento obrigatório",
-    cvm160: "Prospecto formal + comunicações. Disponível até em deslogado (com advertência)"
+    aspect: "Required Documents",
+    cvm88: "Legal docs + operational data. Version control required",
+    cvm160: "Formal prospectus + communications. Available even logged out (with disclaimer)"
   },
   {
-    aspect: "Fluxo de Aporte",
-    cvm88: "Login → KYC → Elegibilidade → Aceites (checkbox individual) → Pagamento",
-    cvm160: "Login → KYC → Aceite de prospecto → Assinatura eletrônica → Pagamento"
+    aspect: "Investment Flow",
+    cvm88: "Login > KYC > Eligibility > Consents (individual checkbox) > Payment",
+    cvm160: "Login > KYC > Prospectus consent > E-signature > Payment"
   }
 ];
 
@@ -177,7 +177,7 @@ export default function ProjectBloxs() {
               href="/#projects"
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-200 mb-12"
             >
-              <ArrowLeft className="h-4 w-4" /> Voltar aos projetos
+              <ArrowLeft className="h-4 w-4" /> Back to projects
             </Link>
 
             {/* Meta */}
@@ -190,12 +190,11 @@ export default function ProjectBloxs() {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] max-w-4xl mb-8">
-              Portal White Label para Distribuição de Ofertas
+              Turning Complex Financial Compliance into a Seamless User Journey
             </h1>
 
             <p className="text-xl text-muted-foreground max-w-2xl">
-              Transformei regras complexas de investimento em uma jornada que faz sentido
-              para quem investe. Compliance que funciona, não que atrapalha.
+              Financial regulations usually kill the user experience. I made sure they didn't. I took heavy legal rules and turned them into a portal that actually makes sense for everyday investors.
             </p>
           </div>
         </section>
@@ -219,7 +218,7 @@ export default function ProjectBloxs() {
             >
               <img
                 src={heroImages[currentImage]}
-                alt="Portal White Label"
+                alt="White Label Portal"
                 className="w-full h-full object-cover object-top"
               />
             </motion.div>
@@ -231,18 +230,14 @@ export default function ProjectBloxs() {
           <div className="container px-6 mx-auto">
             <div className="grid md:grid-cols-12 gap-12">
               <div className="md:col-span-4">
-                <h2 className="text-2xl font-bold tracking-tight">O Projeto</h2>
+                <h2 className="text-2xl font-bold tracking-tight">The Project</h2>
               </div>
               <div className="md:col-span-8">
                 <p className="text-xl leading-relaxed text-foreground/90 mb-6">
-                  Criei um portal onde diferentes parceiros podem distribuir ofertas de investimento
-                  com a própria marca, mas sem cada um precisar reinventar a roda. A experiência
-                  do investidor é consistente, independente de quem está oferecendo.
+                  I designed a white-label portal where different partners could distribute investment offers under their own brand, without each one having to reinvent the wheel. The investor experience stays consistent no matter who's offering it.
                 </p>
                 <p className="text-lg leading-relaxed text-muted-foreground">
-                  Não é só trocar logo e cores. O desafio foi criar algo que escala de verdade:
-                  parceiros entram, configuram a marca, e já têm toda a estrutura de compliance
-                  funcionando (CVM 88 para crowdfunding, CVM 160 para ofertas públicas).
+                  It's not just swapping logos and colors. The real challenge was building something that scales: partners come in, set up their brand, and the entire compliance structure is already running (CVM 88 for crowdfunding, CVM 160 for public offerings). All they had to do was plug in.
                 </p>
               </div>
             </div>
@@ -254,26 +249,26 @@ export default function ProjectBloxs() {
           <div className="container px-6 mx-auto">
             <div className="grid md:grid-cols-12 gap-12">
               <div className="md:col-span-4">
-                <h2 className="text-2xl font-bold tracking-tight">Meu Papel</h2>
+                <h2 className="text-2xl font-bold tracking-tight">My Role</h2>
                 <p className="text-muted-foreground mt-2">Product Designer (B2B/Fintech)</p>
               </div>
               <div className="md:col-span-8">
                 <ul className="space-y-4 text-lg">
                   <li className="flex gap-3">
                     <span className="text-primary">→</span>
-                    <span>Peguei regras regulatórias e transformei em telas que as pessoas entendem</span>
+                    <span>Took dense regulatory rules and turned them into screens people actually understand</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-primary">→</span>
-                    <span>Desenhei uma jornada que funciona igual para todos os parceiros</span>
+                    <span>Designed a journey that works the same across all partners</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-primary">→</span>
-                    <span>Criei componentes e padrões que a gente usa e reusa sem retrabalho</span>
+                    <span>Built reusable components and patterns, no rework needed</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-primary">→</span>
-                    <span>Sentei com jurídico, produto e engenharia para validar cada detalhe</span>
+                    <span>Worked side by side with legal, product, and engineering to validate every detail</span>
                   </li>
                 </ul>
               </div>
@@ -284,17 +279,12 @@ export default function ProjectBloxs() {
         {/* Problem Section */}
         <section className="py-24 border-b border-border">
           <div className="container px-6 mx-auto">
-            <h2 className="text-2xl font-bold tracking-tight mb-6">O Problema</h2>
+            <h2 className="text-2xl font-bold tracking-tight mb-6">The Problem</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mb-6">
-              Distribuir ofertas de investimento é um campo minado regulatório. CVM 88 exige uma coisa,
-              CVM 160 exige outra. O investidor precisa de KYC, aceites com checkbox individual,
-              assinatura eletrônica válida, comprovante de pagamento. Tudo isso precisa ficar registrado
-              para auditoria.
+              Distributing investment offers is a regulatory minefield. CVM 88 requires one thing, CVM 160 requires another. Investors need KYC, individual consent checkboxes, valid e-signatures, payment proof. Every single step needs to be logged for auditing.
             </p>
             <p className="text-lg text-muted-foreground max-w-3xl mb-12">
-              E ainda tem a questão do ambiente deslogado: o que pode mostrar? Simulação de rentabilidade?
-              Só com disclaimer. Convite direto ao aporte? Depende da norma. Cada parceiro quer colocar
-              a própria marca, mas não pode quebrar nenhuma dessas regras.
+              Then there's the logged-out experience: what can you show? Return simulations? Only with a disclaimer. Direct call to invest? Depends on the regulation. Each partner wants their own brand on it, but none of these rules can break.
             </p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -311,11 +301,9 @@ export default function ProjectBloxs() {
         {/* 3 Layers Section */}
         <section className="py-24 border-b border-border">
           <div className="container px-6 mx-auto">
-            <h2 className="text-2xl font-bold tracking-tight mb-4">A Solução</h2>
+            <h2 className="text-2xl font-bold tracking-tight mb-4">The Solution</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mb-12">
-              Separei o que cada parceiro pode customizar do que não pode mudar de jeito nenhum.
-              Assim, todo mundo coloca a própria cara no produto, mas ninguém pula as etapas que garantem
-              que o investidor entenda onde está colocando dinheiro.
+              I separated what each partner can customize from what can never be touched. That way, everyone gets to put their own face on the product, but nobody skips the steps that make sure investors understand where their money is going.
             </p>
 
             <div className="grid md:grid-cols-3 gap-6">
@@ -343,16 +331,16 @@ export default function ProjectBloxs() {
           <div className="container px-6 mx-auto">
             <h2 className="text-2xl font-bold tracking-tight mb-4">CVM 88 vs CVM 160</h2>
             <p className="text-muted-foreground mb-12 max-w-2xl">
-              Duas normas, duas lógicas. O desafio foi criar um motor só que atende as duas sem gambiarras.
+              Two regulations, two different logics. The challenge was building one engine that handles both cleanly.
             </p>
 
             <div className="overflow-x-auto">
               <table className="w-full border-collapse">
                 <thead>
                   <tr className="border-b border-border">
-                    <th className="text-left py-4 pr-6 text-sm font-medium text-muted-foreground">Aspecto</th>
+                    <th className="text-left py-4 pr-6 text-sm font-medium text-muted-foreground">Aspect</th>
                     <th className="text-left py-4 px-6 text-sm font-medium text-blue-400">CVM 88 (Crowdfunding)</th>
-                    <th className="text-left py-4 pl-6 text-sm font-medium text-purple-400">CVM 160 (Oferta Pública)</th>
+                    <th className="text-left py-4 pl-6 text-sm font-medium text-purple-400">CVM 160 (Public Offering)</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -369,9 +357,9 @@ export default function ProjectBloxs() {
 
             <div className="mt-8 p-4 border border-border bg-background">
               <p className="text-sm text-muted-foreground">
-                <span className="text-primary font-medium">Insight:</span> A maior parte do fluxo é compartilhada.
-                O que muda são as checagens específicas (limite, tipo de aceite, nível de divulgação).
-                Componentes reutilizáveis com flags de contexto.
+                <span className="text-primary font-medium">Insight:</span> Most of the flow is shared.
+                What changes are the specific checks (limits, consent type, disclosure level).
+                Reusable components with context flags.
               </p>
             </div>
           </div>
@@ -380,9 +368,9 @@ export default function ProjectBloxs() {
         {/* Main Flow Section */}
         <section className="py-24 border-b border-border">
           <div className="container px-6 mx-auto">
-            <h2 className="text-2xl font-bold tracking-tight mb-4">Fluxo Principal</h2>
+            <h2 className="text-2xl font-bold tracking-tight mb-4">Main Flow</h2>
             <p className="text-muted-foreground mb-12 max-w-2xl">
-              Do "quero ver as opções" até o "investi". Cinco etapas que guiam sem empurrar.
+              From "let me see what's available" to "I invested." Five steps that guide without pushing.
             </p>
 
             <div className="space-y-6">
@@ -408,7 +396,7 @@ export default function ProjectBloxs() {
         {/* Design Decisions */}
         <section className="py-24 border-b border-border">
           <div className="container px-6 mx-auto">
-            <h2 className="text-2xl font-bold tracking-tight mb-12">Decisões de Design</h2>
+            <h2 className="text-2xl font-bold tracking-tight mb-12">Design Decisions</h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {solutions.map((solution, index) => (
@@ -421,23 +409,23 @@ export default function ProjectBloxs() {
             </div>
 
             <div className="mt-16 pt-8 border-t border-border">
-              <h3 className="font-semibold mb-6">Princípios que guiaram as decisões:</h3>
+              <h3 className="font-semibold mb-6">Principles that guided my decisions:</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="flex gap-3 text-muted-foreground">
                   <span className="text-primary">→</span>
-                  <span>Aceites agrupados em um passo, mas cada termo com checkbox individual. Registro separado</span>
+                  <span>Consents grouped in one step, but each term gets its own checkbox. Logged separately</span>
                 </div>
                 <div className="flex gap-3 text-muted-foreground">
                   <span className="text-primary">→</span>
-                  <span>Ambiente deslogado mostra o permitido por norma. CVM 160 libera mais que CVM 88</span>
+                  <span>Logged-out view shows only what the regulation allows. CVM 160 is more permissive than CVM 88</span>
                 </div>
                 <div className="flex gap-3 text-muted-foreground">
                   <span className="text-primary">→</span>
-                  <span>Simulações de rentabilidade só com disclaimer padrão. Sem exceção</span>
+                  <span>Return simulations only with standard disclaimer. No exceptions</span>
                 </div>
                 <div className="flex gap-3 text-muted-foreground">
                   <span className="text-primary">→</span>
-                  <span>Documentos versionados. Mudou? Re-aceite obrigatório, com log da versão anterior</span>
+                  <span>Versioned documents. Changed? Mandatory re-consent, with the previous version logged</span>
                 </div>
               </div>
             </div>
@@ -449,9 +437,9 @@ export default function ProjectBloxs() {
           <div className="container px-6 mx-auto">
             <div className="grid md:grid-cols-12 gap-12">
               <div className="md:col-span-4">
-                <h2 className="text-2xl font-bold tracking-tight">E quando dá errado?</h2>
+                <h2 className="text-2xl font-bold tracking-tight">When Things Go Sideways</h2>
                 <p className="text-muted-foreground mt-2">
-                  O caminho feliz é fácil. O difícil é quando as coisas saem do script.
+                  The happy path is easy. The hard part is when things go off script.
                 </p>
               </div>
               <div className="md:col-span-8">
@@ -471,7 +459,7 @@ export default function ProjectBloxs() {
         {/* Process Section */}
         <section className="py-24 border-b border-border">
           <div className="container px-6 mx-auto">
-            <h2 className="text-2xl font-bold tracking-tight mb-12">Processo</h2>
+            <h2 className="text-2xl font-bold tracking-tight mb-12">Process</h2>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
               {processSteps.map((step, index) => (
@@ -488,34 +476,34 @@ export default function ProjectBloxs() {
         {/* Results Section */}
         <section className="py-24 border-b border-border">
           <div className="container px-6 mx-auto">
-            <h2 className="text-2xl font-bold tracking-tight mb-12">Resultados</h2>
+            <h2 className="text-2xl font-bold tracking-tight mb-12">Results</h2>
 
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <div>
                 <p className="text-lg text-foreground/90 mb-4">
-                  <span className="font-medium">Auditoria simplificada:</span> cada aceite tem timestamp,
-                  versão do documento e identificação do investidor. Pronto pra fiscalização da CVM.
+                  <span className="font-medium">Simplified auditing:</span> every consent carries a timestamp,
+                  document version, and investor ID. Ready for regulatory inspection.
                 </p>
                 <p className="text-lg text-foreground/90 mb-4">
-                  <span className="font-medium">Limite anual automatizado:</span> sistema calcula,
-                  persiste e bloqueia quando necessário. Sem planilha manual.
+                  <span className="font-medium">Automated annual limits:</span> the system calculates,
+                  persists, and blocks when needed. No more manual spreadsheets.
                 </p>
               </div>
               <div>
                 <p className="text-lg text-foreground/90 mb-4">
-                  <span className="font-medium">Um motor, duas normas:</span> mesmo fluxo base atende
-                  CVM 88 e CVM 160 com flags de contexto. Zero duplicação de código.
+                  <span className="font-medium">One engine, two regulations:</span> same base flow handles
+                  CVM 88 and CVM 160 with context flags. Zero code duplication.
                 </p>
                 <p className="text-lg text-foreground/90">
-                  <span className="font-medium">Parceiro em produção rápido:</span> configura marca,
-                  conecta ofertas, compliance já está funcionando. Sem projeto customizado.
+                  <span className="font-medium">Fast partner onboarding:</span> set up the brand,
+                  connect the offers, compliance is already running. No custom project needed.
                 </p>
               </div>
             </div>
 
             <div className="pt-8 border-t border-border">
               <p className="text-muted-foreground">
-                <span className="text-foreground font-medium">Conformidade:</span>{" "}
+                <span className="text-foreground font-medium">Compliance:</span>{" "}
                 <span className="font-mono">CVM 88 · CVM 160</span>
               </p>
             </div>
@@ -525,7 +513,7 @@ export default function ProjectBloxs() {
         {/* Gallery Section */}
         <section className="py-24 border-b border-border">
           <div className="container px-6 mx-auto">
-            <h2 className="text-2xl font-bold tracking-tight mb-12">Galeria</h2>
+            <h2 className="text-2xl font-bold tracking-tight mb-12">Gallery</h2>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {galleryImages.map((image, index) => (
@@ -550,16 +538,16 @@ export default function ProjectBloxs() {
           <div className="container px-6 mx-auto">
             <div className="max-w-2xl">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                Quer saber mais?
+                Let's talk
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Estou sempre aberto a novos desafios e parcerias criativas.
+                I enjoy turning complex systems into experiences that feel simple. If you're working on something like that, I'd love to hear about it.
               </p>
               <a
                 href="/#contact"
                 className="text-primary hover:text-primary/80 transition-colors duration-200"
               >
-                Entre em contato →
+                Get in touch →
               </a>
             </div>
           </div>
